@@ -1,0 +1,51 @@
+.home {
+    font-family: 'Spectral', serif;    
+}
+
+#to{
+  margin-left: 150px;
+  margin-top: -110px;
+  background: none;
+}
+
+.h1{
+  color: #ffffff;
+}
+
+.lead {
+  text-align: left;
+  margin-left: 100px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #ffffff;
+  font-size: 25px;
+}
+
+#body {
+  background: url("https://v1.vuetifyjs.com/static/doc-images/parallax/material2.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; 
+}
+
+.but {
+  text-align: center;
+}
+
+#login{
+  margin-right: 150px;
+  width: 100px;
+  height: 45px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
+
+#signup{
+  width: 100px;
+  height: 45px;
+  font-size: 18px;
+  border-radius: 10px;
+  margin-top: 30px;
+}
