@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import { Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label  } from 'reactstrap';
-
+import axios from "axios";
 class Home extends Component {
 
 	constructor(props) {
@@ -8,6 +8,7 @@ class Home extends Component {
 
         this.toggleModallogin = this.toggleModallogin.bind(this);
         this.toggleModalsignup = this.toggleModalsignup.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
 
         this.state = {
           isModalOpenlogin: false,
@@ -28,10 +29,17 @@ class Home extends Component {
       }
       
       handleLogin(event) {
-        this.toggleModal();
-        alert("Username: " + this.username.value + " Password: " + this.password.value
-            + " Remember: " + this.remember.checked);
+        this.toggleModallogin();
+        // alert("Username: " + this.username.value + " Password: " + this.password.value
+        //     + " Remember: " + this.remember.checked);
+        console.log(event);
+        console.log(this.username.value);
         event.preventDefault();
+        axios.post("http://localhost:3001/users/login",{username : this.username.value,password: this.password.value})
+          .then((res)=>{
+            console.log(res);
+          })
+          .catch((err)=>console.log(err));
 
       }
 
@@ -41,7 +49,7 @@ class Home extends Component {
 	  	<Jumbotron style={{ background: `#3cc1fa` , margin: `200px auto`, height: `310px` }}>
 	  		<div class = "home">		  	
 		        <h1 className="h1">To Do List...!!!</h1>
-		        <div class="row">
+		        <div className="row">
 		        <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
 		        <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to"/>
 		        </div>
