@@ -2,15 +2,17 @@ import React from 'react';
 import Home from './Components/Home';
 import "bootstrap/dist/css/bootstrap.min.css"
 import './App.css';
-import {BrowserRouter, Route} from "react-router-dom" ;
+import {BrowserRouter} from "react-router-dom"
+
+import Main from './Components/Main';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="container">
-      <Home />
+        <Main/>
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
   );
 }
 
