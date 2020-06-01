@@ -4,7 +4,7 @@ import axios from "axios";
 import { Redirect } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
-// const history = useHistory();
+
 class Home extends Component {
 
   constructor(props) {
@@ -35,10 +35,11 @@ class Home extends Component {
     });
   }
 
+  
+
+
   handleLogin(event) {
     this.toggleModallogin();
-    // alert("Username: " + this.username.value + " Password: " + this.password.value
-    //     + " Remember: " + this.remember.checked);
     console.log(event);
     console.log(this.username.value);
     event.preventDefault();
@@ -61,6 +62,7 @@ class Home extends Component {
 
   render() {
     if (this.state.authenticated) {
+        console.log(this.state.userId);
         return <Redirect to={
           {
             pathname : "/" + this.state.userId+ "/exercises",
@@ -69,7 +71,8 @@ class Home extends Component {
             }
           }
         }/>
-    } else {
+    } 
+    else {
       return (
 
         <div>
@@ -86,7 +89,7 @@ class Home extends Component {
               </p>
             </div>
           </Jumbotron>
-          <Modal isOpen={this.state.isModalOpenlogin} toggle={this.toggleModallogin}>
+          <Modal id="modlog" isOpen={this.state.isModalOpenlogin} toggle={this.toggleModallogin}>
             <ModalHeader toggle={this.toggleModallogin}>Login</ModalHeader>
             <ModalBody>
               <Form onSubmit={this.handleLogin}>
@@ -101,10 +104,11 @@ class Home extends Component {
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
                 <Button type="submit" value="submit" color="primary">Login</Button>
+                <Button type="button" color="primary" className="close" data-dismiss="modal" >Close</Button>
               </Form>
             </ModalBody>
           </Modal>
-          <Modal isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
+          <Modal id="modsign" isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
             <ModalHeader toggle={this.toggleModalsignup}>Login</ModalHeader>
             <ModalBody>
               <Form onSubmit={this.handleLogin}>
