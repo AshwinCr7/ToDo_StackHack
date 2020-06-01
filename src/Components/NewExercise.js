@@ -2,15 +2,33 @@ import React , {Component} from 'react';
 import { Form, FormGroup, Label, Input, Button, Jumbotron } from 'reactstrap';
 import Exercise from './Exercise';
 import Navs from './Nav';
+import axios from "axios";
 
 class NewExercise extends Component{
 
+	constructor(props) {
+        super(props); 
+            this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(event){
+      event.preventDefault();
+
+      axios.defaults.headers.common = { 'Authorization': `bearer ${this.props.location.state.token}` }
+
+        axios.post("http://localhost:3001/tasks/newtask",{title : this.listname.value,label : this.category.value,status : "Pending",due:this.due.value,task : this.todo.value})
+            .then((res) => {
+                if (res.status == 200) {
+                    console.log(res.data);
+                }
+            })
+  }
+	
 	render(){
 		return(
 			<div>
-			<Navs />
-			<Jumbotron style={{ background: '#03a5fc', margin: '75px 0px 100px 0px', height: '600px', width: '620px' }}>
-			<Form id="new">
+			<Jumbotron style={{ background: `#3cc1fa`, margin: `100px 0px 100px 0px`, height: `600px`, width: `620px` }}>
+			<Form id="new" onSubmit={this.handleSubmit}>
                 <FormGroup>
                   <b><Label htmlFor="listname" className="newlabel">Name</Label></b>
                   <Input type="text" id="listname" name="listname"

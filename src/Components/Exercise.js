@@ -14,28 +14,29 @@ class Exercise extends Component {
         this.toggledrop = this.toggledrop.bind(this);
         this.state = {   
             dropdownOpen : false,  
-            dropdownOpen1 : false,   	
+            dropdownOpen1 : false, 
+            userId:this.props.match.params.userId,
             exercises : []
         };
-    }
+        axios.defaults.headers.common = { 'Authorization': `bearer ${this.props.location.state.token}` }
 
+        axios.get("http://localhost:3001/tasks/" + this.props.match.params.userId)
+            .then((res) => {
+                if (res.status == 200) {
+                    res.data.forEach(element => {
+                        // this.setState({
+                        //     exercises : [...this.state.exercises, element]
+                        // })
+                        this.setState(prevState => ({
+                            exercises: [...prevState.exercises, element]
+                        }))
+                    });
+                    console.log(this.state.exercises);
+                }
+            })
+    }     
         
-        // axios.defaults.headers.common = {'Authorization': `bearer ${this.props.location.state.token}`}
-    
-        // axios.get("http://localhost:3001/tasks/" + this.props.match.params.userId)
-        //     .then((res)=>{
-        //         if(res.status == 200){
-        //             res.data.forEach(element => {
-        //                 // this.setState({
-        //                 //     exercises : [...this.state.exercises, element]
-        //                 // })
-        //                 this.setState(prevState => ({
-        //                     exercises: [...prevState.exercises, element]
-        //                 }))
-        //             });
-        //             console.log(this.state.exercises);
-        //         }
-        //     })
+
 
             
     toggledrop() {
@@ -43,10 +44,11 @@ class Exercise extends Component {
       dropdownOpen: !this.state.dropdownOpen
         });
     }
+
     
 
     render() {
-            console.log(this.props.match.params);
+            console.log(this.props.match.params.userId);
             return (
                 <div>
             	<Navs />

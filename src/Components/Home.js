@@ -44,7 +44,7 @@ class Home extends Component {
     axios.post("http://localhost:3001/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         if (res.data.success) {
-          var red = "/" + res.data.userId + "/exercise";
+          var red = "/" + res.data.userId + "/exercises";
           console.log(res);
           this.setState({
             authenticated: true,
@@ -60,6 +60,7 @@ class Home extends Component {
 
   render() {
     if (this.state.authenticated) {
+        console.log(this.state.userId);
         return <Redirect to={
           {
             pathname : "/" + this.state.userId+ "/exercises",

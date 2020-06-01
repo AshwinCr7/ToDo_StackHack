@@ -15,9 +15,9 @@ class Main extends Component {
         return (            
                 <Switch>
                     <Route exact path="/" component={Exercise}/>
-                    <Route exact path="/:userId/exercise" component={Exercise}/>
-                    <Route exact path="/new" component={NewExercise}/>
                     <Route exact path="/:lname/display" component={DisplayExercise}/>
+                    <Route exact path="/:userId/exercises" component={Exercise}/>
+                    <Route path="/:userId/exercises/new" component={NewExercise}/>
                 </Switch>
             
         );
