@@ -1,37 +1,42 @@
 import React, { Component } from 'react';
+import axios from "axios";
 class Excercise extends Component {
     constructor(props) {
         super(props);
-        console.log("History" + this.props.history.location.state.auth);
+        
         this.state = {
-            auth : false
+            exercises : []
         }
-        if(this.props.history.location.state.auth === true){
-            console.log("COnst")
-            this.setState({
-                auth:true
+         axios.defaults.headers.common = {'Authorization': `bearer ${this.props.location.state.token}`}
+    
+        axios.get("http://localhost:3001/tasks/" + this.props.match.params.userId)
+            .then((res)=>{
+                if(res.status == 200){
+                    res.data.forEach(element => {
+                        // this.setState({
+                        //     exercises : [...this.state.exercises, element]
+                        // })
+                        this.setState(prevState => ({
+                            exercises: [...prevState.exercises, element]
+                        }))
+                    });
+                    console.log(this.state.exercises);
+                }
             })
-        }
-        console.log("state" + this.state.auth);
+
+            
     }
 
 
 
     render() {
-        console.log("History1" + this.props.history.location.state.auth);
-        if (this.props.history.location.state.auth) {
+        // if (this.props.history.location.state.auth) {
+            console.log(this.props.match.params);
             return (
                 <div>
                     <h1>Exercise Page</h1>
                 </div>
             );
-        } else {
-            return (
-                <div>
-                    <h1>UnAuthorized</h1>
-                </div>
-            );
-        }
     }
 }
 

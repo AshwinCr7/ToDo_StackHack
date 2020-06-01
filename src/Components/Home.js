@@ -4,6 +4,7 @@ import axios from "axios";
 import { Redirect } from 'react-router-dom';
 import { withRouter } from "react-router";
 import { useHistory } from "react-router-dom";
+// const history = useHistory();
 class Home extends Component {
 
   constructor(props) {
@@ -17,6 +18,8 @@ class Home extends Component {
       isModalOpenlogin: false,
       isModalOpensignup: false,
       authenticated: false,
+      userId: null,
+      token : null
     };
   }
 
@@ -42,20 +45,14 @@ class Home extends Component {
     axios.post("http://localhost:3001/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         if (res.data.success) {
-          var red = "/" +  res.data.userId + "/exercises";
-          this.props.history.push({
-            pathname : "/" +  res.data.userId + "/exercises",
-            state : {
-              auth : true
-            }
-          });
-          // return <Redirect to={{
-          //   pathname: "/" + res.data.userId + "/exercises",
-          //   state: { id: '123' }
-          // }}
-          // />;
-          // console.log(res.data);
-          // history.push({url : red});
+          var red = "/" + res.data.userId + "/exercises";
+          console.log(res);
+          this.setState({
+            authenticated: true,
+            userId: res.data.userId,
+            token :res.data.token
+
+          })
         }
       })
       .catch((err) => console.log(err));
@@ -63,65 +60,77 @@ class Home extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <Jumbotron style={{ background: `#3cc1fa`, margin: `200px auto`, height: `310px` }}>
-          <div className="home">
-            <h1 className="h1">To Do List...!!!</h1>
-            <div className="row">
-              <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
-              <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" />
+    if (this.state.authenticated) {
+        return <Redirect to={
+          {
+            pathname : "/" + this.state.userId+ "/exercises",
+            state : {
+              token : this.state.token
+            }
+          }
+        }/>
+    } else {
+      return (
+
+        <div>
+          <Jumbotron style={{ background: `#3cc1fa`, margin: `200px auto`, height: `310px` }}>
+            <div className="home">
+              <h1 className="h1">To Do List...!!!</h1>
+              <div className="row">
+                <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
+                <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" />
+              </div>
+              <p className="but">
+                <Button id="login" color="primary" onClick={this.toggleModallogin}>Login</Button>
+                <Button id="signup" color="primary" onClick={this.toggleModalsignup}>Sign Up</Button>
+              </p>
             </div>
-            <p className="but">
-              <Button id="login" color="primary" onClick={this.toggleModallogin}>Login</Button>
-              <Button id="signup" color="primary" onClick={this.toggleModalsignup}>Sign Up</Button>
-            </p>
-          </div>
-        </Jumbotron>
-        <Modal isOpen={this.state.isModalOpenlogin} toggle={this.toggleModallogin}>
-          <ModalHeader toggle={this.toggleModallogin}>Login</ModalHeader>
-          <ModalBody>
-            <Form onSubmit={this.handleLogin}>
-              <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input type="text" id="username" name="username"
-                  innerRef={(input) => this.username = input} />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                <Input type="password" id="password" name="password"
-                  innerRef={(input) => this.password = input} />
-              </FormGroup>
-              <Button type="submit" value="submit" color="primary">Login</Button>
-            </Form>
-          </ModalBody>
-        </Modal>
-        <Modal isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
-          <ModalHeader toggle={this.toggleModalsignup}>Login</ModalHeader>
-          <ModalBody>
-            <Form onSubmit={this.handleLogin}>
-              <FormGroup>
-                <Label htmlFor="name">Name</Label>
-                <Input type="text" id="name" name="name"
-                  innerRef={(input) => this.name = input} />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="username">Username</Label>
-                <Input type="text" id="username" name="username"
-                  innerRef={(input) => this.username = input} />
-              </FormGroup>
-              <FormGroup>
-                <Label htmlFor="password">Password</Label>
-                <Input type="password" id="password" name="password"
-                  innerRef={(input) => this.password = input} />
-              </FormGroup>
-              <Button type="submit" value="submit" color="primary">Sign up</Button>
-            </Form>
-          </ModalBody>
-        </Modal>
-      </div>
-    );
+          </Jumbotron>
+          <Modal isOpen={this.state.isModalOpenlogin} toggle={this.toggleModallogin}>
+            <ModalHeader toggle={this.toggleModallogin}>Login</ModalHeader>
+            <ModalBody>
+              <Form onSubmit={this.handleLogin}>
+                <FormGroup>
+                  <Label htmlFor="username">Username</Label>
+                  <Input type="text" id="username" name="username"
+                    innerRef={(input) => this.username = input} />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="password">Password</Label>
+                  <Input type="password" id="password" name="password"
+                    innerRef={(input) => this.password = input} />
+                </FormGroup>
+                <Button type="submit" value="submit" color="primary">Login</Button>
+              </Form>
+            </ModalBody>
+          </Modal>
+          <Modal isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
+            <ModalHeader toggle={this.toggleModalsignup}>Login</ModalHeader>
+            <ModalBody>
+              <Form onSubmit={this.handleLogin}>
+                <FormGroup>
+                  <Label htmlFor="name">Name</Label>
+                  <Input type="text" id="name" name="name"
+                    innerRef={(input) => this.name = input} />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="username">Username</Label>
+                  <Input type="text" id="username" name="username"
+                    innerRef={(input) => this.username = input} />
+                </FormGroup>
+                <FormGroup>
+                  <Label htmlFor="password">Password</Label>
+                  <Input type="password" id="password" name="password"
+                    innerRef={(input) => this.password = input} />
+                </FormGroup>
+                <Button type="submit" value="submit" color="primary">Sign up</Button>
+              </Form>
+            </ModalBody>
+          </Modal>
+        </div>
+      );
+    }
   }
 };
 
-export default withRouter(Home);
+export default Home;
