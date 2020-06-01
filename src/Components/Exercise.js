@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import axios from "axios";
-class Excercise extends Component {
+// import DisplayExcercise from './DisplayExcercise';
+import NewExercise from './NewExercise';
+import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
+
+class Exercise extends Component {
     constructor(props) {
         super(props);
         
@@ -30,15 +34,14 @@ class Excercise extends Component {
 
 
     render() {
-        // if (this.props.history.location.state.auth) {
             console.log(this.props.match.params);
             return (
-                <div>
-                    <h1>Exercise Page</h1>
-                </div>
+                <Switch>
+                    <Route path="/new" component={NewExercise}/>
+                </Switch>
             );
     }
 }
 
 
-export default Excercise;
+export default Exercise;

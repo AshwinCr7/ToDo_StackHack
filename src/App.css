@@ -2,6 +2,42 @@
     font-family: 'Spectral', serif;    
 }
 
+#new{
+  margin-top: -20px;
+}
+
+#plan{
+  font-family: 'Spectral', serif;
+  margin-top: 40px;
+  font-size: 31px;
+  color: #ff8300;
+  font-style: italic;
+}
+
+#add{
+  margin-right: 385px;
+  margin-top: 30px;
+  width: 85px;
+  height: 45px;
+  border-radius: 10px;
+  font-weight: bold;
+
+}
+
+#sub{
+    margin-top: 30px;
+    width: 85px;
+    height: 45px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.newlabel{
+  font-family: 'Spectral', serif;
+  font-size: 20px;
+  color: #ff8300;
+}
+
 #to{
   margin-left: 150px;
   margin-top: -110px;
