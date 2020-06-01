@@ -1,17 +1,15 @@
 import React , {Component} from 'react';
 import { Form, FormGroup, Label, Input, Button, Jumbotron } from 'reactstrap';
+import Exercise from './Exercise';
+import Navs from './Nav';
 
 class NewExercise extends Component{
 
-	constructor(props) {
-        super(props); 
-            
-    }
-	
 	render(){
 		return(
 			<div>
-			<Jumbotron style={{ background: `#3cc1fa`, margin: `100px 0px 100px 0px`, height: `600px`, width: `620px` }}>
+			<Navs />
+			<Jumbotron style={{ background: '#03a5fc', margin: '75px 0px 100px 0px', height: '600px', width: '620px' }}>
 			<Form id="new">
                 <FormGroup>
                   <b><Label htmlFor="listname" className="newlabel">Name</Label></b>
@@ -30,13 +28,13 @@ class NewExercise extends Component{
                 </FormGroup>
                 <FormGroup>
                   <Label htmlFor="due" className="newlabel">Due Date</Label>
-                  <Input type="date" id="due" name="due" value="2020-06-01" max="2030-01-01" innerRef={(input) => this.due = input}/>
+                  <Input type="date" id="due" name="due" max="2030-01-01" innerRef={(input) => this.due = input}/>
                 </FormGroup>
                 <Button type="submit" value="submit" color="primary" id="add">Add</Button>
                 <Button type="submit" value="submit" color="primary" id="sub">Submit</Button>
-            </Form>
-            <p id="plan">Plan Your Work & Work Your Plan...!!!</p>
-            </Jumbotron>
+      </Form>
+      <p id="plan">Plan Your Work & Work Your Plan ...!!!</p>
+      </Jumbotron>
 			</div>
 			
 		);

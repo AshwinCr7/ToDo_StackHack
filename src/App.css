@@ -2,6 +2,37 @@
     font-family: 'Spectral', serif;    
 }
 
+.exer{
+  margin-top: -40px;
+}
+
+.exer1{
+  margin-top: -60px;
+}
+
+#navbar{
+  border-radius: 5px;
+  width: 620px;
+}
+
+#droptype{
+  width: 159px;
+  margin-left: 100px;
+}
+
+#dropname{
+  width: 159px;
+  margin-left: 128px;
+}
+
+#cl{
+  margin-left: 335px;
+}
+
+#cls{
+  margin-left: 320px;
+}
+
 #new{
   margin-top: -20px;
 }
@@ -10,7 +41,7 @@
   font-family: 'Spectral', serif;
   margin-top: 40px;
   font-size: 31px;
-  color: #ff8300;
+  color: #ff3700;
   font-style: italic;
 }
 
@@ -35,7 +66,13 @@
 .newlabel{
   font-family: 'Spectral', serif;
   font-size: 20px;
-  color: #ff8300;
+  color: #ff3700;
+}
+
+.exlabel{
+  font-family: 'Spectral', serif;
+  font-size: 20px;
+  color: #ffffff;
 }
 
 #to{

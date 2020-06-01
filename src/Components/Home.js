@@ -25,17 +25,15 @@ class Home extends Component {
 
   toggleModallogin() {
     this.setState({
-      isModalOpenlogin: !this.state.isModalOpen
+      isModalOpenlogin: !this.state.isModalOpenlogin
     });
   }
 
   toggleModalsignup() {
     this.setState({
-      isModalOpensignup: !this.state.isModalOpen
+      isModalOpensignup: !this.state.isModalOpensignup
     });
   }
-
-  
 
 
   handleLogin(event) {
@@ -46,7 +44,7 @@ class Home extends Component {
     axios.post("http://localhost:3001/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         if (res.data.success) {
-          var red = "/" + res.data.userId + "/exercises";
+          var red = "/" + res.data.userId + "/exercise";
           console.log(res);
           this.setState({
             authenticated: true,
@@ -103,14 +101,13 @@ class Home extends Component {
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
                 <Button type="submit" value="submit" color="primary">Login</Button>
-                <Button type="button" color="primary" class="close" data-dismiss="modal" >Close</Button>
               </Form>
             </ModalBody>
           </Modal>
           <Modal id="modsign" isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
-            <ModalHeader toggle={this.toggleModalsignup}>Login</ModalHeader>
+            <ModalHeader toggle={this.toggleModalsignup}>SignUp</ModalHeader>
             <ModalBody>
-              <Form onSubmit={this.handleLogin}>
+              <Form onSubmit={() => {return(<Home />)}}>
                 <FormGroup>
                   <Label htmlFor="name">Name</Label>
                   <Input type="text" id="name" name="name"

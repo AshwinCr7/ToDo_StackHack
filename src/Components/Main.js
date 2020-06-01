@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Home from './Home';
 import NewExercise from './NewExercise';
+import DisplayExercise from './DisplayExercise';
 import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
 import Exercise from './Exercise';
 class Main extends Component {
@@ -13,8 +14,10 @@ class Main extends Component {
     render() {
         return (            
                 <Switch>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/:userId/exercises" component={Exercise}/>
+                    <Route exact path="/" component={Exercise}/>
+                    <Route exact path="/:userId/exercise" component={Exercise}/>
+                    <Route exact path="/new" component={NewExercise}/>
+                    <Route exact path="/:lname/display" component={DisplayExercise}/>
                 </Switch>
             
         );
