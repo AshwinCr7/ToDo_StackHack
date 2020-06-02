@@ -18,7 +18,9 @@ class Exercise extends Component {
             userId:this.props.match.params.userId,
             exercises : []
         };
-        axios.defaults.headers.common = { 'Authorization': `bearer ${this.props.location.state.token}` }
+        console.log(localStorage.getItem("token"));
+        axios.defaults.withCredentials = true ;
+        axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
         axios.get("http://localhost:3001/tasks/" + this.props.match.params.userId)
             .then((res) => {
@@ -51,7 +53,7 @@ class Exercise extends Component {
             console.log(this.props.match.params.userId);
             return (
                 <div>
-            	<Navs />
+            	<Navs userId={this.props.match.params.userId}/>
                     <Form>                            
                         <FormGroup className="exer">
                           <Label style={{margin: '100px 0px 0px 0px'}} htmlFor="category" className="exlabel">Category</Label>

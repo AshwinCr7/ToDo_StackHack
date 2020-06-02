@@ -13,13 +13,15 @@ class Home extends Component {
     this.toggleModallogin = this.toggleModallogin.bind(this);
     this.toggleModalsignup = this.toggleModalsignup.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleSignup = this.handleSignup.bind(this);
+    axios.defaults.withCredentials = true;
 
     this.state = {
       isModalOpenlogin: false,
       isModalOpensignup: false,
       authenticated: false,
       userId: null,
-      token : null
+      token: null
     };
   }
 
@@ -33,6 +35,24 @@ class Home extends Component {
     this.setState({
       isModalOpensignup: !this.state.isModalOpensignup
     });
+  }
+
+  handleSignup(event) {
+    this.toggleModalsignup();
+    event.preventDefault();
+    axios.post("http://localhost:3001/users/signup", { username: this.username.value, password: this.password.value, name: this.name.value })
+      .then((res) => {
+        if (res.data.success) {
+          console.log(res);
+          this.setState({
+            authenticated: true,
+            userId: res.data.userId,
+            token: res.data.token
+
+          });
+          localStorage.setItem("token",res.data.token);
+        }
+      });
   }
 
 
@@ -49,9 +69,10 @@ class Home extends Component {
           this.setState({
             authenticated: true,
             userId: res.data.userId,
-            token :res.data.token
+            token: res.data.token
 
           })
+          localStorage.setItem("token",res.data.token);
         }
       })
       .catch((err) => console.log(err));
@@ -60,16 +81,13 @@ class Home extends Component {
 
   render() {
     if (this.state.authenticated) {
-        console.log(this.state.userId);
-        return <Redirect to={
-          {
-            pathname : "/" + this.state.userId+ "/exercises",
-            state : {
-              token : this.state.token
-            }
-          }
-        }/>
-    } 
+      console.log(this.state.userId);
+      return <Redirect to={
+        {
+          pathname: "/" + this.state.userId + "/exercises",
+        }
+      } />
+    }
     else {
       return (
 
@@ -108,7 +126,7 @@ class Home extends Component {
           <Modal id="modsign" isOpen={this.state.isModalOpensignup} toggle={this.toggleModalsignup}>
             <ModalHeader toggle={this.toggleModalsignup}>SignUp</ModalHeader>
             <ModalBody>
-              <Form onSubmit={() => {return(<Home />)}}>
+              <Form onSubmit={this.handleSignup}>
                 <FormGroup>
                   <Label htmlFor="name">Name</Label>
                   <Input type="text" id="name" name="name"

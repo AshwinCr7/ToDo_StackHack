@@ -21,6 +21,7 @@ class Navs extends Component{
       }
 
 	render(){
+    const myEx = "/" + this.props.userId+ "/exercises";
 		return(
 			<div>
 		      <Navbar id="navbar" style={{ background: '#03a5fc'}} expand="md">
@@ -29,10 +30,10 @@ class Navs extends Component{
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                         <NavItem>
-                            <NavLink style={{color: '#ffffff'}} activeStyle={{color: 'black'}} className="nav-link"  to="/:userId/exercise">My Exercises</NavLink>
+                            <NavLink style={{color: '#ffffff'}} activeStyle={{color: 'black'}} className="nav-link"  to={myEx}>My Tasks</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink style={{color: 'white'}} activeStyle={{color: 'black'}} className="nav-link" to="/new">New Exercises</NavLink>
+                            <NavLink style={{color: 'white'}} activeStyle={{color: 'black'}} className="nav-link" to={"/" + this.props.userId+ "/exercises/new"}>New Task</NavLink>
                         </NavItem>
                         </Nav>                            
                     </Collapse>

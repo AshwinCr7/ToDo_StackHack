@@ -14,7 +14,7 @@ class Main extends Component {
     render() {
         return (            
                 <Switch>
-                    <Route exact path="/" component={Exercise}/>
+                    <Route exact path="/" component={Home}/>
                     <Route exact path="/:lname/display" component={DisplayExercise}/>
                     <Route exact path="/:userId/exercises" component={Exercise}/>
                     <Route path="/:userId/exercises/new" component={NewExercise}/>

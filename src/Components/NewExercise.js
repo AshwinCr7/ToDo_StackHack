@@ -13,8 +13,8 @@ class NewExercise extends Component{
 
     handleSubmit(event){
       event.preventDefault();
-
-      axios.defaults.headers.common = { 'Authorization': `bearer ${this.props.location.state.token}` }
+      axios.defaults.withCredentials = true ;
+      axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
         axios.post("http://localhost:3001/tasks/newtask",{title : this.listname.value,label : this.category.value,status : "Pending",due:this.due.value,task : this.todo.value})
             .then((res) => {
