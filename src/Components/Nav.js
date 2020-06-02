@@ -21,7 +21,7 @@ class Navs extends Component{
       }
 
 	render(){
-    const myEx = "/" + localStorage.getItem("userId") + "/exercises";
+    const myEx = "/" + localStorage.getItem("userId")+ "/exercises";
 		return(
 			<div>
 		      <Navbar id="navbar" style={{ background: '#03a5fc'}} expand="md">

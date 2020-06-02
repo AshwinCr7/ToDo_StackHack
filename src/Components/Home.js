@@ -73,7 +73,6 @@ class Home extends Component {
             authenticated: true,
             userId: res.data.userId,
             token: res.data.token
-
           })
         }
       })
