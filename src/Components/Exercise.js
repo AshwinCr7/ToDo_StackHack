@@ -22,7 +22,7 @@ class Exercise extends Component {
         axios.defaults.withCredentials = true ;
         axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-        axios.get("http://localhost:3001/tasks/" + this.props.match.params.userId)
+        axios.get("http://localhost:3001/tasks/" + localStorage.getItem("userId"))
             .then((res) => {
                 if (res.status == 200) {
                     res.data.forEach(element => {
@@ -33,7 +33,7 @@ class Exercise extends Component {
                             exercises: [...prevState.exercises, element]
                         }))
                     });
-                    console.log(this.state.exercises);
+                    console.log( "Whatis" + this.state.exercises);
                 }
             })
     }     
@@ -48,7 +48,7 @@ class Exercise extends Component {
             console.log(this.props.match.params.userId);
             return (
                 <div>
-            	<Navs userId={this.props.match.params.userId}/>
+            	<Navs userId={localStorage.getItem("userId")}/>
                     <Form>                            
                         <FormGroup className="exer">
                           <Label style={{margin: '100px 0px 0px 0px'}} htmlFor="category" className="exlabel">Category</Label>

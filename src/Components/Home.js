@@ -51,6 +51,7 @@ class Home extends Component {
 
           });
           localStorage.setItem("token",res.data.token);
+          localStorage.setItem("userId",res.data.userId);
         }
       });
   }
@@ -66,13 +67,15 @@ class Home extends Component {
         if (res.data.success) {
           var red = "/" + res.data.userId + "/exercises";
           console.log(res);
+          localStorage.setItem("token",res.data.token);
+          localStorage.setItem("userId",res.data.userId);
           this.setState({
             authenticated: true,
             userId: res.data.userId,
             token: res.data.token
 
           })
-          localStorage.setItem("token",res.data.token);
+          
         }
       })
       .catch((err) => console.log(err));
@@ -84,7 +87,7 @@ class Home extends Component {
       console.log(this.state.userId);
       return <Redirect to={
         {
-          pathname: "/" + this.state.userId + "/exercises",
+          pathname: "/" + localStorage.getItem("userId") + "/exercises",
         }
       } />
     }
