@@ -2,6 +2,28 @@
     font-family: 'Spectral', serif;    
 }
 
+hr{
+  background: #fc5a03;
+  height: 3px;
+  border-radius: 10px;
+}
+
+.text{
+  font-family: 'Spectral', serif;
+  font-size: 20px;
+  color: #e8e8e8;
+  text-align: justify-all;
+}
+
+.cards{
+  background-color: #03a5fc;
+  padding: 15px;
+  margin-top: 40px;
+  margin-right: 70px;
+  width: 300px;
+  border-radius: 5px;
+}
+
 .exer{
   margin-top: -40px;
 }
@@ -12,7 +34,7 @@
 
 #navbar{
   border-radius: 5px;
-  width: 620px;
+  width: 1040px;
 }
 
 #droptype{
@@ -71,7 +93,7 @@
 
 .exlabel{
   font-family: 'Spectral', serif;
-  font-size: 20px;
+  font-size: 25px;
   color: #ffffff;
 }
 

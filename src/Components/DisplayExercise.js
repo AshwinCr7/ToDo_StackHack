@@ -1,17 +1,17 @@
 import React , {Component} from 'react';
 import {
   Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle
+  CardTitle, CardSubtitle, Button
 } from 'reactstrap';
 
 function Rendercard({todos}){
 		return(
-		    <Card>
-              <CardTitle>{todos.title}</CardTitle>
-              <CardSubtitle>{todos.label}</CardSubtitle>
-              <CardText>{todos.task}</CardText>
-              <CardText>{todos.due}</CardText>
-              <CardText>{todos.status}</CardText>
+		    <Card className="cards">
+              <CardTitle className="text">{todos.title}</CardTitle>
+              <CardSubtitle className="text">{todos.label}</CardSubtitle>
+              <CardText className="text">{todos.task}</CardText>
+              <CardText className="text">{todos.due}</CardText>
+              <CardText className="text">{todos.status}</CardText>
             </Card>	        		
 	    );	
 }
@@ -21,15 +21,13 @@ const Display = (props) => {
   if(props.exercise != undefined && props.exercise != null)
   {
         display = props.exercise.map((todo) => {
-          return (
-            <div key={todo.id} className="col-12 col-md-5 m-1">
-              <Rendercard todos = {todo} />
-            </div>
+        return (  
+  			<Rendercard todos = {todo} />  				
           );  
         }) 
    } 
-  else
-  {
+   else
+   {
     display = () => {
       return(
         <div></div>
@@ -40,7 +38,7 @@ const Display = (props) => {
   return (
       <div className="container">          
           <div className="row">
-              {display}
+          	{display} 
           </div>
       </div>
   );
