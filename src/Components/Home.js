@@ -88,9 +88,9 @@ class Home extends Component {
         }
       } />
     }
+
     else {
       return (
-
         <div>
           <Jumbotron style={{ background: `#3cc1fa`, margin: `200px auto`, height: `310px` }}>
             <div className="home">

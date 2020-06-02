@@ -33,7 +33,7 @@ class Navs extends Component{
                             <NavLink style={{color: '#ffffff'}} activeStyle={{color: 'black'}} className="nav-link"  to={myEx}>My Tasks</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink style={{color: 'white'}} activeStyle={{color: 'black'}} className="nav-link" to={"/" + this.props.userId+ "/exercises/new"}>New Task</NavLink>
+                            <NavLink style={{color: '#ffffff'}} activeStyle={{color: 'black'}} className="nav-link" to={"/" + this.props.userId+ "/exercises/new"}>New Task</NavLink>
                         </NavItem>
                         </Nav>                            
                     </Collapse>

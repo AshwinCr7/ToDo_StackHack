@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from "axios";
 import Navs from './Nav';
-import DisplayExercise from './DisplayExercise';
+import Display from './DisplayExercise';
 import NewExercise from './NewExercise';
 import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
 import { Form, FormGroup, Label, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -37,17 +37,12 @@ class Exercise extends Component {
                 }
             })
     }     
-        
-
-
             
     toggledrop() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
         });
-    }
-
-    
+    }   
 
     render() {
             console.log(this.props.match.params.userId);
@@ -65,6 +60,7 @@ class Exercise extends Component {
                         </ButtonDropdown>
                         </FormGroup>                                                   
                     </Form>
+                <Display exercise = {this.state.exercises}/>
                 </div>
             );
     }

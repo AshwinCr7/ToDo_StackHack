@@ -27,6 +27,7 @@ class NewExercise extends Component{
 	render(){
 		return(
 			<div>
+			<Navs />
 			<Jumbotron style={{ background: `#3cc1fa`, margin: `100px 0px 100px 0px`, height: `600px`, width: `620px` }}>
 			<Form id="new" onSubmit={this.handleSubmit}>
                 <FormGroup>
