@@ -9,10 +9,15 @@ function Rendercard({todos}){
 		    <Card className="cards">
               <CardTitle className="text">{todos.title}</CardTitle>
               <CardSubtitle className="text">{todos.label}</CardSubtitle>
+              <hr />
               <CardText className="text">{todos.task}</CardText>
               <CardText className="text">{todos.due}</CardText>
-              <CardText className="text">{todos.status}</CardText>
-            </Card>	        		
+              <CardText className="text">{todos.status}</CardText> 
+              <div>
+              <Button type="submit" color="danger" className="remove">Remove</Button>
+              <Button type="submit" color="danger" className="done">Done</Button>
+              </div>             
+        </Card>	        		
 	    );	
 }
 
@@ -38,7 +43,7 @@ const Display = (props) => {
   return (
       <div className="container">          
           <div className="row">
-          	{display} 
+            {display}              
           </div>
       </div>
   );

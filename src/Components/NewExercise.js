@@ -1,5 +1,5 @@
 import React , {Component} from 'react';
-import { Form, FormGroup, Label, Input, Button, Jumbotron } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Jumbotron, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Exercise from './Exercise';
 import Navs from './Nav';
 import axios from "axios";
@@ -8,7 +8,11 @@ class NewExercise extends Component{
 
 	constructor(props) {
         super(props); 
+            this.toggledrop = this.toggledrop.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
+            this.state = {
+            	dropdownOpen : false,
+            }
     }
 
     handleSubmit(event){
@@ -23,39 +27,51 @@ class NewExercise extends Component{
                 }
             })
   }
+
+  toggledrop() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+        });
+  }
 	
 	render(){
 		return(
 			<div>
 			<Navs />
-			<Jumbotron style={{ background: `#3cc1fa`, margin: `100px 0px 100px 0px`, height: `600px`, width: `620px` }}>
+			<Jumbotron id = "jumbo">
 			<Form id="new" onSubmit={this.handleSubmit}>
                 <FormGroup>
-                  <b><Label htmlFor="listname" className="newlabel">Name</Label></b>
+                  <b><Label htmlFor="listname" className="newlabel">NAME</Label></b>
                   <Input type="text" id="listname" name="listname"
                     innerRef={(input) => this.listname = input} />
                 </FormGroup>
                 <FormGroup>
-                  <Label htmlFor="category" className="newlabel">Category</Label>
-                  <Input type="text" id="category" name="category"
-                    innerRef={(input) => this.category = input} />
+                  <Label htmlFor="category" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >CATEGORY</Label>
+                  <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggledrop} id="droptype">
+	                  <DropdownToggle color="primary" toggle={this.toggledrop} caret style={{fontSize: '18px'}} >Type</DropdownToggle>
+	                  <DropdownMenu className="drop">
+	                    <DropdownItem className="typelist">Home</DropdownItem>
+	                    <DropdownItem className="typelist">Work</DropdownItem>
+	                    <DropdownItem className="typelist">Shop</DropdownItem>
+	                    <DropdownItem className="typelist">Edu</DropdownItem>
+	                    <DropdownItem className="typelist">Payments</DropdownItem>
+	                  </DropdownMenu>
+	              </ButtonDropdown>
                 </FormGroup>
                 <FormGroup>
-                  <Label htmlFor="todo" className="newlabel">Todo</Label>
+                  <Label htmlFor="todo" className="newlabel">TODO</Label>
                   <Input type="text" id="todo" name="todo"
                     innerRef={(input) => this.todo = input} />
                 </FormGroup>
                 <FormGroup>
-                  <Label htmlFor="due" className="newlabel">Due Date</Label>
+                  <Label htmlFor="due" className="newlabel">DUE DATE</Label>
                   <Input type="date" id="due" name="due" max="2030-01-01" innerRef={(input) => this.due = input}/>
                 </FormGroup>
                 <Button type="submit" value="submit" color="primary" id="add">Add</Button>
                 <Button type="submit" value="submit" color="primary" id="sub">Submit</Button>
-      </Form>
-      <p id="plan">Plan Your Work & Work Your Plan ...!!!</p>
+      </Form>      
       </Jumbotron>
-			</div>
-			
+	</div>			
 		);
 	}
 }

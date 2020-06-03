@@ -93,7 +93,7 @@ class Home extends Component {
     else {
       return (
         <div>
-          <Jumbotron style={{ background: `#3cc1fa`, margin: `200px auto`, height: `310px` }}>
+          <Jumbotron id="jumboh">
             <div className="home">
               <h1 className="h1">To Do List...!!!</h1>
               <div className="row">
@@ -120,7 +120,7 @@ class Home extends Component {
                   <Input type="password" id="password" name="password"
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
-                <Button type="submit" value="submit" color="primary">Login</Button>
+                <Button type="submit" color="primary" style={{marginTop: '5px'}} >Login</Button>
               </Form>
             </ModalBody>
           </Modal>
@@ -143,7 +143,7 @@ class Home extends Component {
                   <Input type="password" id="password" name="password"
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
-                <Button type="submit" value="submit" color="primary">Sign up</Button>
+                <Button type="submit" color="primary" style={{marginTop: '5px'}} >Sign up</Button>
               </Form>
             </ModalBody>
           </Modal>

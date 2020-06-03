@@ -14,7 +14,6 @@ class Exercise extends Component {
         this.toggledrop = this.toggledrop.bind(this);
         this.state = {   
             dropdownOpen : false,  
-            dropdownOpen1 : false, 
             userId:this.props.match.params.userId,
             exercises : []
         };
@@ -51,11 +50,15 @@ class Exercise extends Component {
             	<Navs userId={localStorage.getItem("userId")}/>
                     <Form>                            
                         <FormGroup className="exer">
-                          <Label style={{margin: '100px 0px 0px 0px'}} htmlFor="category" className="exlabel">TYPE</Label>
+                          <Label style={{margin: '100px 0px 0px 0px'}} htmlFor="category" className="exlabel">CATEGORY</Label>
                           <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggledrop} id="droptype">
-                          <DropdownToggle color="warning" toggle={this.toggledrop} caret >Type</DropdownToggle>
-                          <DropdownMenu >
-                            <DropdownItem className="typelist"></DropdownItem>
+                          <DropdownToggle color="warning" toggle={this.toggledrop} caret style={{fontSize: '18px'}}>Type</DropdownToggle>
+                          <DropdownMenu className="drop">
+                            <DropdownItem className="typelist">Home</DropdownItem>
+                            <DropdownItem className="typelist">Office</DropdownItem>
+                            <DropdownItem className="typelist">Shop</DropdownItem>
+                        <DropdownItem className="typelist">Edu</DropdownItem>
+                        <DropdownItem className="typelist">Payments</DropdownItem>
                           </DropdownMenu>
                         </ButtonDropdown>
                         </FormGroup>                                                   

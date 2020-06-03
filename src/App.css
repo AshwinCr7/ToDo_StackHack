@@ -2,6 +2,40 @@
     font-family: 'Spectral', serif;    
 }
 
+#jumboh{
+  background: #3cc1fa;
+  margin: 200px auto;
+  height: 300px;
+}
+
+.typelist{
+  font-size: 19px;
+}
+
+.remove{
+  margin-right: 113px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.done{
+  width: 80px;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+.drop{
+  background-color: #d9d9d9;
+}
+
+#jumbo{
+  background-color: #3cc1fa;
+  margin: 50px 0px 100px 0px;
+  height: 627px; 
+  width: 575px;
+  padding-top: 50px;
+}
+
 hr{
   background: #fc5a03;
   height: 3px;
@@ -19,8 +53,8 @@ hr{
   background-color: #03a5fc;
   padding: 15px;
   margin-top: 40px;
-  margin-right: 70px;
-  width: 300px;
+  margin-right: 50px;
+  width: 315px;
   border-radius: 5px;
 }
 
@@ -34,12 +68,12 @@ hr{
 
 #navbar{
   border-radius: 5px;
-  width: 1040px;
+  width: 1050px;
 }
 
 #droptype{
   width: 159px;
-  margin-left: 100px;
+  margin-left: 200px;  
 }
 
 #dropname{
@@ -61,39 +95,42 @@ hr{
 
 #plan{
   font-family: 'Spectral', serif;
-  margin-top: 40px;
-  font-size: 31px;
+  font-size: 25px;
   color: #ff3700;
   font-style: italic;
+  margin-top: 25px;
 }
 
 #add{
-  margin-right: 385px;
-  margin-top: 30px;
+  margin-right: 340px;
+  margin-top: 35px;
   width: 85px;
   height: 45px;
-  border-radius: 10px;
-  font-weight: bold;
+  border-radius: 5px;
+  font-size: 18px;
 
 }
 
 #sub{
-    margin-top: 30px;
+    margin-top: 35px;
     width: 85px;
     height: 45px;
-    border-radius: 10px;
-    font-weight: bold;
+    border-radius: 5px;
+    font-size: 18px;
 }
 
 .newlabel{
   font-family: 'Spectral', serif;
-  font-size: 20px;
+  margin-bottom: 20px;
+  font-size: 18px;
   color: #ff3700;
+  margin-top: 25px;
+  margin-right: 47px
 }
 
 .exlabel{
   font-family: 'Spectral', serif;
-  font-size: 25px;
+  font-size: 22px;
   color: #ffffff;
 }
 
@@ -104,16 +141,16 @@ hr{
 }
 
 .h1{
-  color: #ffffff;
+  color: #ff7300;
 }
 
 .lead {
   text-align: left;
   margin-left: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 3px;
   margin-top: 20px;
-  color: #ffffff;
-  font-size: 25px;
+  color: #fffb00;
+  font-size: 28px;
 }
 
 #body {
@@ -129,7 +166,7 @@ hr{
 }
 
 #login{
-  margin-right: 150px;
+  margin-right: 175px;
   width: 100px;
   height: 45px;
   font-size: 18px;
