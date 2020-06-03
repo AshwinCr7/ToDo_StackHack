@@ -4,16 +4,18 @@ import Navs from './Nav';
 import Display from './DisplayExercise';
 import NewExercise from './NewExercise';
 import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
-import { Form, FormGroup, Label, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Form, FormGroup, Label, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'reactstrap';
 
 
 class Exercise extends Component {
     constructor(props) {
         super(props);
 
-        this.toggledrop = this.toggledrop.bind(this);
+        this.toggledroptype = this.toggledroptype.bind(this);
+        this.toggledroppriority = this.toggledroppriority.bind(this);
         this.state = {   
-            dropdownOpen : false,  
+            dropdownOpentype : false, 
+            dropdownOpenpriority : false,
             userId:this.props.match.params.userId,
             exercises : []
         };
@@ -37,34 +39,64 @@ class Exercise extends Component {
             })
     }     
             
-    toggledrop() {
+    toggledroptype() {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
+      dropdownOpentype: !this.state.dropdownOpentype
         });
     }   
+
+    toggledroppriority() {
+    this.setState({
+      dropdownOpenpriority: !this.state.dropdownOpenpriority
+        });
+  }
 
     render() {
             console.log(this.props.match.params.userId);
             return (
-                <div>
-            	<Navs userId={localStorage.getItem("userId")}/>
-                    <Form>                            
-                        <FormGroup className="exer">
-                          <Label style={{margin: '100px 0px 0px 0px'}} htmlFor="category" className="exlabel">CATEGORY</Label>
-                          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggledrop} id="droptype">
-                          <DropdownToggle color="warning" toggle={this.toggledrop} caret style={{fontSize: '18px'}}>Type</DropdownToggle>
-                          <DropdownMenu className="drop">
-                            <DropdownItem className="typelist">Home</DropdownItem>
-                            <DropdownItem className="typelist">Office</DropdownItem>
-                            <DropdownItem className="typelist">Shop</DropdownItem>
-                        <DropdownItem className="typelist">Edu</DropdownItem>
-                        <DropdownItem className="typelist">Payments</DropdownItem>
-                          </DropdownMenu>
-                        </ButtonDropdown>
-                        </FormGroup>                                                   
-                    </Form>
+            <div>
+            <Navs userId={localStorage.getItem("userId")}/>       
+                <div id="search">            	             
+                  <Label htmlFor="category" className="exlabel">CATEGORY</Label>
+                  
+                  <ButtonDropdown isOpen={this.state.dropdownOpentype} toggle={this.toggledroptype} id="exdroptype">
+                  <DropdownToggle color="warning" toggle={this.toggledroptype} caret style={{fontSize: '19px'}}>Type</DropdownToggle>
+                  <DropdownMenu className="drop">
+                    <DropdownItem className="typelist">Home</DropdownItem>
+                    <hr/>
+                    <DropdownItem className="typelist">Work</DropdownItem>
+                    <hr/>
+                    <DropdownItem className="typelist">Shopping</DropdownItem>
+                    <hr/>
+                    <DropdownItem className="typelist">Edu</DropdownItem>
+                    <hr/>
+                    <DropdownItem className="typelist">Payments</DropdownItem>
+                    <hr/>
+                    <DropdownItem className="typelist">Payments</DropdownItem>
+                  </DropdownMenu>
+                  </ButtonDropdown>
+
+                  <Label htmlFor="category" className="exlabel" style={{marginLeft: '20px'}} >DUE DATE</Label>
+
+                  <Input type="date" id="exdue" name="exdue" max="2030-01-01" innerRef={(input) => this.exdue = input}/>
+
+                  <Label htmlFor="priority" className="exlabel" style={{marginLeft: '20px'}} >PRIORITY</Label>
+
+                  <ButtonDropdown isOpen={this.state.dropdownOpenpriority} toggle={this.toggledroppriority} id="exdroppriority">
+                    <DropdownToggle color="warning" toggle={this.toggledroppriority} caret style={{fontSize: '19px'}} >Priority</DropdownToggle>
+                    <DropdownMenu className="drop">
+                      <DropdownItem className="typelist">High</DropdownItem>
+                      <hr/>
+                      <DropdownItem className="typelist">Medium</DropdownItem>
+                      <hr/>
+                      <DropdownItem className="typelist">Low</DropdownItem>
+                    </DropdownMenu>
+                  </ButtonDropdown> 
+                  </div>
+                  <div>   
                 <Display exercise = {this.state.exercises}/>
                 </div>
+            </div>
             );
     }
 }

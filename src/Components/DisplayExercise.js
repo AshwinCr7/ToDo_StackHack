@@ -9,7 +9,7 @@ function Rendercard({todos}){
 		    <Card className="cards">
               <CardTitle className="text">{todos.title}</CardTitle>
               <CardSubtitle className="text">{todos.label}</CardSubtitle>
-              <hr />
+              <hr id="hrcard" />
               <CardText className="text">{todos.task}</CardText>
               <CardText className="text">{todos.due}</CardText>
               <CardText className="text">{todos.status}</CardText> 

@@ -1,5 +1,15 @@
-.home {
-    font-family: 'Spectral', serif;    
+#exdue{
+  width: 200px;
+  margin-left: 54px;
+  height: 43px;
+  background-color: #edc915;
+  border-color: #edc915;
+}
+
+#search{
+  display: inline-flex;
+  flex-direction: row;
+  margin-top: 100px;
 }
 
 #jumboh{
@@ -29,14 +39,14 @@
 }
 
 #jumbo{
-  background-color: #3cc1fa;
-  margin: 50px 0px 100px 0px;
-  height: 627px; 
+  background-color: #03a5fc;
+  margin: 35px 0px 100px 0px;
+  height: 642px; 
   width: 575px;
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
-hr{
+#hrcard{
   background: #fc5a03;
   height: 3px;
   border-radius: 10px;
@@ -58,8 +68,9 @@ hr{
   border-radius: 5px;
 }
 
-.exer{
+.exe{
   margin-top: -40px;
+  display: inline-block;
 }
 
 .exer1{
@@ -69,11 +80,35 @@ hr{
 #navbar{
   border-radius: 5px;
   width: 1050px;
+  background-color: #03a5fc;
 }
 
 #droptype{
   width: 159px;
-  margin-left: 200px;  
+  margin-left: 191px;  
+}
+
+#exdroptype{
+  width: 159px;
+  margin-left: 54px;  
+  height: 43px;
+}
+
+#dropstatus{
+  width: 159px;
+  margin-left: 225px;  
+}
+
+#droppriority{
+  width: 159px;
+  margin-left: 203px; 
+  height: 43px; 
+}
+
+#exdroppriority{
+  width: 159px;
+  margin-left: 54px; 
+  height: 43px;
 }
 
 #dropname{
@@ -103,7 +138,7 @@ hr{
 
 #add{
   margin-right: 340px;
-  margin-top: 35px;
+  margin-top: 15px;
   width: 85px;
   height: 45px;
   border-radius: 5px;
@@ -112,7 +147,7 @@ hr{
 }
 
 #sub{
-    margin-top: 35px;
+    margin-top: 15px;
     width: 85px;
     height: 45px;
     border-radius: 5px;
@@ -121,36 +156,38 @@ hr{
 
 .newlabel{
   font-family: 'Spectral', serif;
-  margin-bottom: 20px;
-  font-size: 18px;
-  color: #ff3700;
-  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 19.5px;
+  color: #ff0000;
+  margin-top: 15px;
   margin-right: 47px
 }
 
 .exlabel{
   font-family: 'Spectral', serif;
-  font-size: 22px;
-  color: #ffffff;
+  font-size: 20px;
+  color: #e8e8e8;
 }
 
 #to{
-  margin-left: 150px;
-  margin-top: -110px;
+  margin-left: 90px;
+  margin-top: -70px;
   background: none;
 }
 
 .h1{
   color: #ff7300;
+  font-family: 'Lora', serif;
 }
 
 .lead {
   text-align: left;
-  margin-left: 100px;
+  margin-left: 130px;
   margin-bottom: 3px;
   margin-top: 20px;
   color: #fffb00;
-  font-size: 28px;
+  font-size: 30px;
+  font-family: 'Lora', serif;
 }
 
 #body {
@@ -171,7 +208,6 @@ hr{
   height: 45px;
   font-size: 18px;
   border-radius: 10px;
-  margin-top: 30px;
 }
 
 #signup{
@@ -179,5 +215,4 @@ hr{
   height: 45px;
   font-size: 18px;
   border-radius: 10px;
-  margin-top: 30px;
 }
