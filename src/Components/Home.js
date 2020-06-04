@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Jumbotron, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import axios from "axios";
 import { Redirect } from 'react-router-dom';
-import { withRouter } from "react-router";
-import { useHistory } from "react-router-dom";
 
 class Home extends Component {
 
@@ -98,7 +96,7 @@ class Home extends Component {
               <h1 className="h1">To Do List...!!!</h1>
               <div className="row">
                 <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
-                <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" />
+                <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" alt="ToDo Icon" />
               </div>
               <p className="but">
                 <Button id="login" color="primary" onClick={this.toggleModallogin}>Login</Button>

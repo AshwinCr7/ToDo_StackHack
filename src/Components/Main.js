@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Home from './Home';
 import NewExercise from './NewExercise';
-import Display from './DisplayExercise';
-import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
+import { Switch, Route, Redirect,Router } from "react-router-dom";
 import Exercise from './Exercise';
 class Main extends Component {
-    constructor(props) {
-        super(props);
-    }
-
 
     render() {
         return (            

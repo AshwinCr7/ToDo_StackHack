@@ -1,8 +1,5 @@
-import React , {Component} from 'react';
-import {
-  Card, CardImg, CardText, CardBody, CardLink,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+import React from 'react';
+import { Card, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap';
 
 function Rendercard({todos}){
 		return(
@@ -23,7 +20,7 @@ function Rendercard({todos}){
 
 const Display = (props) => {
   let display = {};
-  if(props.exercise != undefined && props.exercise != null)
+  if(props.exercise !== undefined && props.exercise !== null)
   {
         display = props.exercise.map((todo) => {
         return (  

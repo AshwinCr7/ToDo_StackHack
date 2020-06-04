@@ -1,6 +1,5 @@
 import React , {Component} from 'react';
-import { Form, FormGroup, Label, Input, Button, Jumbotron, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-import Exercise from './Exercise';
+import { Form, FormGroup, Label, Input, Button, Jumbotron, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Navs from './Nav';
 import axios from "axios";
 
@@ -9,13 +8,19 @@ class NewExercise extends Component{
 	constructor(props) {
         super(props); 
             this.toggledrop = this.toggledrop.bind(this);
+            this.changeValuetype = this.changeValuetype.bind(this);
+            this.changeValuepriority= this.changeValuepriority.bind(this);
+            this.changeValuestatus = this.changeValuestatus.bind(this);
             this.toggledroppriority = this.toggledroppriority.bind(this);
             this.toggledropstatus = this.toggledropstatus.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
             this.state = {
-            	dropdownOpen : false,
+              dropdownOpen : false,
               dropdownOpenstatus : false,
-              dropdownOpenpriority : false
+              dropdownOpenpriority : false,
+              dropDownValuetype : 'Type',
+              dropDownValuestatus : 'Status',
+              dropDownValuepriority : 'Priority'
             }
     }
 
@@ -49,6 +54,18 @@ class NewExercise extends Component{
       dropdownOpenpriority: !this.state.dropdownOpenpriority
         });
   }
+
+  changeValuetype(e) {
+  		this.setState({dropDownValuetype: e.currentTarget.textContent})
+	}
+
+  changeValuestatus(e) {
+		this.setState({dropDownValuestatus: e.currentTarget.textContent})
+  }
+
+  changeValuepriority(e) {
+		this.setState({dropDownValuepriority: e.currentTarget.textContent})
+  }
 	
 	render(){
 		return(
@@ -66,19 +83,19 @@ class NewExercise extends Component{
                   <b><Label htmlFor="category" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >CATEGORY</Label></b>
                   
                   <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggledrop} id="droptype">
-	                  <DropdownToggle color="danger" toggle={this.toggledrop} caret style={{fontSize: '18px'}} >Type</DropdownToggle>
+	                  <DropdownToggle color="danger" toggle={this.toggledrop} caret style={{fontSize: '18px'}} >{this.state.dropDownValuetype}</DropdownToggle>
 	                  <DropdownMenu className="drop">
-	                    <DropdownItem className="typelist">Home</DropdownItem>
+	                    <DropdownItem className="typelist" onClick={this.changeValuetype} >Home</DropdownItem>
                       <hr/>
-	                    <DropdownItem className="typelist">Work</DropdownItem>
+	                    <DropdownItem className="typelist" onClick={this.changeValuetype} >Work</DropdownItem>
                       <hr/>
-	                    <DropdownItem className="typelist">Shopping</DropdownItem>
+	                    <DropdownItem className="typelist" onClick={this.changeValuetype} >Shopping</DropdownItem>
                       <hr/>
-	                    <DropdownItem className="typelist">Edu</DropdownItem>
+	                    <DropdownItem className="typelist" onClick={this.changeValuetype} >Edu</DropdownItem>
                       <hr/>
-	                    <DropdownItem className="typelist">Payments</DropdownItem>
+	                    <DropdownItem className="typelist" onClick={this.changeValuetype} >Payments</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">Misc</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuetype} >Misc</DropdownItem>
 	                  </DropdownMenu>
 	              </ButtonDropdown>
                 </FormGroup>
@@ -92,11 +109,11 @@ class NewExercise extends Component{
                   <b><Label htmlFor="status" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >STATUS</Label></b>
                   
                   <ButtonDropdown isOpen={this.state.dropdownOpenstatus} toggle={this.toggledropstatus} id="dropstatus">
-                    <DropdownToggle color="danger" toggle={this.toggledropstatus} caret style={{fontSize: '18px'}} >Status</DropdownToggle>
+                    <DropdownToggle color="danger" toggle={this.toggledropstatus} caret style={{fontSize: '18px'}} >{this.state.dropDownValuestatus}</DropdownToggle>
                     <DropdownMenu className="drop">
-                      <DropdownItem className="typelist">New</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuestatus} >New</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">In Progress</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuestatus} >In Progress</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>
@@ -109,13 +126,13 @@ class NewExercise extends Component{
                   <b><Label htmlFor="priority" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >PRIORITY</Label></b>
                   
                   <ButtonDropdown isOpen={this.state.dropdownOpenpriority} toggle={this.toggledroppriority} id="droppriority">
-                    <DropdownToggle color="danger" toggle={this.toggledroppriority} caret style={{fontSize: '18px'}} >Priority</DropdownToggle>
+                    <DropdownToggle color="danger" toggle={this.toggledroppriority} caret style={{fontSize: '18px'}} >{this.state.dropDownValuepriority}</DropdownToggle>
                     <DropdownMenu className="drop">
-                      <DropdownItem className="typelist">High</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuepriority}>High</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">Medium</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuepriority}>Medium</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">Low</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValuepriority}>Low</DropdownItem>
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>

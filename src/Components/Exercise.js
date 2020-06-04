@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import Navs from './Nav';
 import Display from './DisplayExercise';
-import NewExercise from './NewExercise';
-import {BrowserRouter, Switch, Route, Redirect,Router } from "react-router-dom";
-import { Form, FormGroup, Label, ButtonDropdown, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'reactstrap';
+import { Label, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem, Input } from 'reactstrap';
 
 
 class Exercise extends Component {
@@ -13,9 +11,13 @@ class Exercise extends Component {
 
         this.toggledroptype = this.toggledroptype.bind(this);
         this.toggledroppriority = this.toggledroppriority.bind(this);
+        this.changeValueextype = this.changeValueextype.bind(this);
+        this.changeValueexpriority= this.changeValueexpriority.bind(this);
         this.state = {   
             dropdownOpentype : false, 
             dropdownOpenpriority : false,
+            dropDownValueextype : 'Type',
+            dropDownValueexpriority : 'Priority',
             userId:this.props.match.params.userId,
             exercises : []
         };
@@ -49,7 +51,15 @@ class Exercise extends Component {
     this.setState({
       dropdownOpenpriority: !this.state.dropdownOpenpriority
         });
-  }
+    }
+
+    changeValueextype(e) {
+  		this.setState({dropDownValueextype: e.currentTarget.textContent})
+	  }
+
+	changeValueexpriority(e) {
+		this.setState({dropDownValueexpriority: e.currentTarget.textContent})
+    }
 
     render() {
             console.log(this.props.match.params.userId);
@@ -60,19 +70,19 @@ class Exercise extends Component {
                   <Label htmlFor="category" className="exlabel">CATEGORY</Label>
                   
                   <ButtonDropdown isOpen={this.state.dropdownOpentype} toggle={this.toggledroptype} id="exdroptype">
-                  <DropdownToggle color="warning" toggle={this.toggledroptype} caret style={{fontSize: '19px'}}>Type</DropdownToggle>
+                  <DropdownToggle color="warning" toggle={this.toggledroptype} caret style={{fontSize: '19px'}}>{this.state.dropDownValueextype}</DropdownToggle>
                   <DropdownMenu className="drop">
-                    <DropdownItem className="typelist">Home</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Home</DropdownItem>
                     <hr/>
-                    <DropdownItem className="typelist">Work</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Work</DropdownItem>
                     <hr/>
-                    <DropdownItem className="typelist">Shopping</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Shopping</DropdownItem>
                     <hr/>
-                    <DropdownItem className="typelist">Edu</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Edu</DropdownItem>
                     <hr/>
-                    <DropdownItem className="typelist">Payments</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Payments</DropdownItem>
                     <hr/>
-                    <DropdownItem className="typelist">Payments</DropdownItem>
+                    <DropdownItem className="typelist" onClick={this.changeValueextype} >Misc</DropdownItem>
                   </DropdownMenu>
                   </ButtonDropdown>
 
@@ -83,13 +93,13 @@ class Exercise extends Component {
                   <Label htmlFor="priority" className="exlabel" style={{marginLeft: '20px'}} >PRIORITY</Label>
 
                   <ButtonDropdown isOpen={this.state.dropdownOpenpriority} toggle={this.toggledroppriority} id="exdroppriority">
-                    <DropdownToggle color="warning" toggle={this.toggledroppriority} caret style={{fontSize: '19px'}} >Priority</DropdownToggle>
+                    <DropdownToggle color="warning" toggle={this.toggledroppriority} caret style={{fontSize: '19px'}} >{this.state.dropDownValueexpriority}</DropdownToggle>
                     <DropdownMenu className="drop">
-                      <DropdownItem className="typelist">High</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValueexpriority} >High</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">Medium</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValueexpriority} >Medium</DropdownItem>
                       <hr/>
-                      <DropdownItem className="typelist">Low</DropdownItem>
+                      <DropdownItem className="typelist" onClick={this.changeValueexpriority} >Low</DropdownItem>
                     </DropdownMenu>
                   </ButtonDropdown> 
                   </div>
