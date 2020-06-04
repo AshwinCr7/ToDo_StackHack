@@ -99,8 +99,8 @@ class Home extends Component {
                 <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" alt="ToDo Icon" />
               </div>
               <p className="but">
-                <Button id="login" color="primary" onClick={this.toggleModallogin}>Login</Button>
-                <Button id="signup" color="primary" onClick={this.toggleModalsignup}>Sign Up</Button>
+                <Button id="login" color="primary" onClick={this.toggleModallogin}><i class="fa fa-sign-in" aria-hidden="true" style={{marginRight: '7px'}} ></i>Login</Button>
+                <Button id="signup" color="primary" onClick={this.toggleModalsignup}><i class="fa fa-user" style={{fontSize: '15px' , marginRight: '7px'}} ></i>Sign Up</Button>
               </p>
             </div>
           </Jumbotron>
@@ -118,7 +118,7 @@ class Home extends Component {
                   <Input type="password" id="password" name="password"
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
-                <Button type="submit" color="primary" style={{marginTop: '5px'}} >Login</Button>
+                <Button type="submit" color="primary" style={{marginTop: '5px', height: '42px', width: '89px'}} ><i class="fa fa-sign-in" aria-hidden="true" style={{marginRight: '7px'}} ></i>Login</Button>
               </Form>
             </ModalBody>
           </Modal>
@@ -141,7 +141,7 @@ class Home extends Component {
                   <Input type="password" id="password" name="password"
                     innerRef={(input) => this.password = input} />
                 </FormGroup>
-                <Button type="submit" color="primary" style={{marginTop: '5px'}} >Sign up</Button>
+                <Button type="submit" color="primary" style={{marginTop: '5px', height: '42px', width: '105px'}} ><i class="fa fa-user" style={{fontSize: '15px' , marginRight: '7px'}} ></i>Sign Up</Button>
               </Form>
             </ModalBody>
           </Modal>

@@ -2,6 +2,8 @@ import React , {Component} from 'react';
 import { Form, FormGroup, Label, Input, Button, Jumbotron, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Navs from './Nav';
 import axios from "axios";
+import { NavLink } from 'react-router-dom';
+import Exercise from './Exercise';
 
 class NewExercise extends Component{
 
@@ -24,17 +26,17 @@ class NewExercise extends Component{
             }
     }
 
-    handleSubmit(event){
-      event.preventDefault();
-      axios.defaults.withCredentials = true ;
-      axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
+  handleSubmit(event){
+    event.preventDefault();
+    axios.defaults.withCredentials = true ;
+    axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-        axios.post("http://localhost:3001/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
-            .then((res) => {
-                if (res.status == 200) {
-                    console.log(res.data);
-                }
-            })
+      axios.post("http://localhost:3001/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
+          .then((res) => {
+              if (res.status == 200) {
+                  console.log(res.data);
+              }
+          })
   }
 
   toggledrop() {
@@ -71,7 +73,7 @@ class NewExercise extends Component{
 		return(
 			<div>
 			<Navs />
-			<Jumbotron id = "jumbo">
+			<Jumbotron id = "jumbon">
 			<Form id="new" onSubmit={this.handleSubmit}>
                 <FormGroup>
                   <b><Label htmlFor="listname" className="newlabel">NAME</Label></b>
@@ -136,9 +138,8 @@ class NewExercise extends Component{
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>
-
-                <Button type="submit" value="submit" color="primary" id="add">Add</Button>
-                <Button type="submit" value="submit" color="primary" id="sub">Submit</Button>
+                <Button type="submit" value="submit" color="primary" id="sub"><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
+                <Button type="submit" value="submit" color="primary" id="homebt"  ><i class="fa fa-home" aria-hidden="true" style={{fontSize:'15px', color:'primary', marginRight: '7px'}} ></i>Home</Button>
       </Form>      
       </Jumbotron>
 	</div>			

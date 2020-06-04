@@ -1,9 +1,18 @@
 #exdue{
   width: 200px;
-  margin-left: 54px;
+  margin-left: 63.7px;
   height: 43px;
   background-color: #edc915;
   border-color: #edc915;
+  margin-right: 6px;
+}
+
+#nocard{
+  margin-top: 75px;
+  font-size: 28px;
+  color: #e8e8e8;
+  word-spacing: 21px;
+  float: left;
 }
 
 #search{
@@ -23,13 +32,13 @@
 }
 
 .remove{
-  margin-right: 113px;
+  margin-right: 80px;
   font-size: 18px;
   margin-top: 5px;
 }
 
 .done{
-  width: 80px;
+  width: 95px;
   font-size: 18px;
   margin-top: 5px;
 }
@@ -38,7 +47,7 @@
   background-color: #d9d9d9;
 }
 
-#jumbo{
+#jumbon{
   background-color: #03a5fc;
   margin: 35px 0px 100px 0px;
   height: 642px; 
@@ -64,7 +73,7 @@
   padding: 15px;
   margin-top: 40px;
   margin-right: 50px;
-  width: 315px;
+  width: 320px;
   border-radius: 5px;
 }
 
@@ -79,35 +88,36 @@
 
 #navbar{
   border-radius: 5px;
-  width: 1050px;
+  width: 1065px;
   background-color: #03a5fc;
 }
 
 #droptype{
   width: 159px;
-  margin-left: 191px;  
+  margin-left: 202px;  
 }
 
 #exdroptype{
   width: 159px;
-  margin-left: 54px;  
+  margin-left: 63.7px;  
   height: 43px;
+  margin-right: 6px;
 }
 
 #dropstatus{
   width: 159px;
-  margin-left: 225px;  
+  margin-left: 232px;  
 }
 
 #droppriority{
   width: 159px;
-  margin-left: 203px; 
+  margin-left: 213px; 
   height: 43px; 
 }
 
 #exdroppriority{
   width: 159px;
-  margin-left: 54px; 
+  margin-left: 63.7px; 
   height: 43px;
 }
 
@@ -136,36 +146,34 @@
   margin-top: 25px;
 }
 
-#add{
-  margin-right: 340px;
-  margin-top: 15px;
-  width: 85px;
-  height: 45px;
-  border-radius: 5px;
-  font-size: 18px;
-
-}
-
 #sub{
     margin-top: 15px;
-    width: 85px;
-    height: 45px;
+    width: 110px;
+    height: 41px;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 19px;
+    margin-right: 291px;
+}
+
+#homebt {
+    margin-top: 15px;
+    width: 110px;
+    height: 41px;
+    border-radius: 5px;
+    font-size: 19px;
 }
 
 .newlabel{
-  font-family: 'Spectral', serif;
+ 
   margin-bottom: 10px;
-  font-size: 19.5px;
+  font-size: 20px;
   color: #ff0000;
   margin-top: 15px;
-  margin-right: 47px
+  margin-right: 48px
 }
 
 .exlabel{
-  font-family: 'Spectral', serif;
-  font-size: 20px;
+  font-size: 21px;
   color: #e8e8e8;
 }
 
@@ -211,7 +219,7 @@
 }
 
 #signup{
-  width: 100px;
+  width: 112px;
   height: 45px;
   font-size: 18px;
   border-radius: 10px;

@@ -67,7 +67,7 @@ class Exercise extends Component {
             <div>
             <Navs userId={localStorage.getItem("userId")}/>       
                 <div id="search">            	             
-                  <Label htmlFor="category" className="exlabel">CATEGORY</Label>
+                  <b><Label htmlFor="category" className="exlabel">CATEGORY</Label></b>
                   
                   <ButtonDropdown isOpen={this.state.dropdownOpentype} toggle={this.toggledroptype} id="exdroptype">
                   <DropdownToggle color="warning" toggle={this.toggledroptype} caret style={{fontSize: '19px'}}>{this.state.dropDownValueextype}</DropdownToggle>
@@ -86,11 +86,11 @@ class Exercise extends Component {
                   </DropdownMenu>
                   </ButtonDropdown>
 
-                  <Label htmlFor="category" className="exlabel" style={{marginLeft: '20px'}} >DUE DATE</Label>
+                  <b><Label htmlFor="category" className="exlabel" style={{marginLeft: '20px'}} >DUE DATE</Label></b>
 
                   <Input type="date" id="exdue" name="exdue" max="2030-01-01" innerRef={(input) => this.exdue = input}/>
 
-                  <Label htmlFor="priority" className="exlabel" style={{marginLeft: '20px'}} >PRIORITY</Label>
+                  <b><Label htmlFor="priority" className="exlabel" style={{marginLeft: '20px'}} >PRIORITY</Label></b>
 
                   <ButtonDropdown isOpen={this.state.dropdownOpenpriority} toggle={this.toggledroppriority} id="exdroppriority">
                     <DropdownToggle color="warning" toggle={this.toggledroppriority} caret style={{fontSize: '19px'}} >{this.state.dropDownValueexpriority}</DropdownToggle>

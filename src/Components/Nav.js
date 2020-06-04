@@ -30,10 +30,13 @@ class Navs extends Component{
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                         <NavItem>
-                            <NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '40px'}} className="nav-link"  to={myEx}>My Tasks</NavLink>
+                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link"  to={myEx}>My Tasks</NavLink></b>
                         </NavItem>
                         <NavItem>
-                            <NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '40px'}} className="nav-link" to={"/" + localStorage.getItem("userId")+ "/exercises/new"}>New Task</NavLink>
+                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '40px'}} className="nav-link" to={"/" + localStorage.getItem("userId")+ "/exercises/new"}>New Task</NavLink></b>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink style={{color: '#ffffff', fontSize: '20px',marginLeft: '599px',}} className="nav-link" to={"/"}><i class="fa fa-sign-out" style={{fontSize: '20px', marginRight: '15px'}}></i>Log Out</NavLink>
                         </NavItem>
                         </Nav>                            
                     </Collapse>
