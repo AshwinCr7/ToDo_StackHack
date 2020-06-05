@@ -97,10 +97,11 @@ class Home extends Component {
               <h1 className="h1">To Do List...!!!</h1>
               <div className="row">
                 <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
-                <img src="https://pngimage.net/wp-content/uploads/2018/06/todo-png-6.png" width="170px" height="170px" id="to" alt="ToDo Icon" />
+                <img src="todo.png" width="200px" height="200px" id="to" alt="ToDo Icon" />
               </div>
               <p className="but">
-                <Button id="login" color="primary" onClick={this.toggleModallogin}><i class="fa fa-sign-in" aria-hidden="true" style={{marginRight: '7px'}} ></i>Login</Button>
+                <Button id="login" color="primary" onClick={this.toggleModallogin}><i class="fa fa-sign-in" aria-hidden="true" style={{marginRight: '7px'}} ></i>
+                Login</Button>
                 <Button id="signup" color="primary" onClick={this.toggleModalsignup}><i class="fa fa-user" style={{fontSize: '15px' , marginRight: '7px'}} ></i>Sign Up</Button>
               </p>
             </div>

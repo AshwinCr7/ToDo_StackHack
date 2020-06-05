@@ -78,7 +78,7 @@ class NewExercise extends Component{
 			<Form id="new" onSubmit={this.handleSubmit}>
                 <FormGroup>
                   <b><Label htmlFor="listname" className="newlabel">NAME</Label></b>
-                  <Input type="text" id="listname" name="listname"
+                  <Input type="text" className="input" id="listname" name="listname"
                     innerRef={(input) => this.listname = input} />
                 </FormGroup>
 
@@ -105,7 +105,7 @@ class NewExercise extends Component{
 
                 <FormGroup>
                   <b><Label htmlFor="todo" className="newlabel">TODO</Label></b>
-                  <Input type="text" id="todo" name="todo"
+                  <Input type="text" className="input" id="todo" name="todo"
                     innerRef={(input) => this.todo = input} />
                 </FormGroup>
                 <FormGroup>
@@ -123,7 +123,7 @@ class NewExercise extends Component{
 
                 <FormGroup>
                   <b><Label htmlFor="due" className="newlabel">DUE DATE</Label></b>
-                  <Input type="date" id="due" name="due" max="2030-01-01" innerRef={(input) => this.due = input}/>
+                  <Input type="date" className="input" id="due" name="due" max="2030-01-01" innerRef={(input) => this.due = input}/>
                 </FormGroup>
                 <FormGroup>
                   <b><Label htmlFor="priority" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >PRIORITY</Label></b>
@@ -139,8 +139,8 @@ class NewExercise extends Component{
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>
-                <Button type="submit" value="submit" color="primary" id="sub" onClick={this.handleSubmit}><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
                 <Button type="submit" value="submit" color="primary" id="homebt"  ><i class="fa fa-home" aria-hidden="true" style={{fontSize:'15px', color:'primary', marginRight: '7px'}} ></i>Home</Button>
+                <Button type="submit" value="submit" onClick={this.handleSubmit} color="primary" id="sub"><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
       </Form>      
       </Jumbotron>
 	</div>			
