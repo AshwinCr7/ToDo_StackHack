@@ -171,6 +171,8 @@ class Exercise extends Component {
       this.filter()
     });
   }
+
+  
   render() {
     // console.log(this.props.match.params.userId);
 
