@@ -139,7 +139,6 @@ class NewExercise extends Component{
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>
-                <Button type="submit" value="submit" color="primary" id="homebt"  ><i class="fa fa-home" aria-hidden="true" style={{fontSize:'15px', color:'primary', marginRight: '7px'}} ></i>Home</Button>
                 <Button type="submit" value="submit" onClick={this.handleSubmit} color="primary" id="sub"><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
       </Form>      
       </Jumbotron>
