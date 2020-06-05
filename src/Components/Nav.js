@@ -32,7 +32,7 @@ class Navs extends Component {
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                         <NavItem>
-                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link disabled"  to={myEx}><i class="fa fa-user-circle" aria-hidden="true" style={{fontSize:'23px', color:'primary', marginRight: '7px', marginTop: '3px'}} >{" Welcome " + localStorage.getItem("userName")}</i></NavLink></b>
+                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link disabled"  to={myEx}><i class="fa fa-user-circle" aria-hidden="true" style={{fontSize:'23px', color:'primary', marginRight: '7px', marginTop: '3px'}} ></i>{" Welcome " + localStorage.getItem("userName")}</NavLink></b>
                         </NavItem>
                         <NavItem>
                             <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link"  to={myEx}><i class="fa fa-home" aria-hidden="true" style={{fontSize:'20px', color:'primary', marginRight: '7px'}} ></i>My Tasks</NavLink></b>

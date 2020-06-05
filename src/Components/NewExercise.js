@@ -16,7 +16,13 @@ class NewExercise extends Component{
             this.toggledroppriority = this.toggledroppriority.bind(this);
             this.toggledropstatus = this.toggledropstatus.bind(this);
             this.handleSubmit = this.handleSubmit.bind(this);
+            this.handleInputChangename = this.handleInputChangename.bind(this);
+            this.handleInputChangetodo = this.handleInputChangetodo.bind(this);
+            this.handleInputChangedate = this.handleInputChangedate.bind(this);
             this.state = {
+              valuename : '',
+              valuetodo : '',
+              valuedate : '',	
               dropdownOpen : false,
               dropdownOpenstatus : false,
               dropdownOpenpriority : false,
@@ -38,6 +44,15 @@ class NewExercise extends Component{
                 
               }
           })
+
+    this.setState({
+    valuename : '',
+    valuetodo : '',
+    valuedate : '',
+    dropDownValuetype : 'Type',
+    dropDownValuestatus : 'Status',
+    dropDownValuepriority : 'Priority'
+        });
   }
 
   toggledrop() {
@@ -69,6 +84,24 @@ class NewExercise extends Component{
   changeValuepriority(e) {
 		this.setState({dropDownValuepriority: e.currentTarget.textContent})
   }
+
+  handleInputChangename(e){
+  this.setState ({
+    valuename : e.target.value 
+  })
+  }
+
+  handleInputChangetodo(e){
+  this.setState ({
+    valuetodo : e.target.value 
+  })
+  }
+
+  handleInputChangedate(e){
+  this.setState ({
+    valuedate : e.target.value 
+  })
+  }
 	
 	render(){
 		return(
@@ -79,7 +112,7 @@ class NewExercise extends Component{
                 <FormGroup>
                   <b><Label htmlFor="listname" className="newlabel">NAME</Label></b>
                   <Input type="text" className="input" id="listname" name="listname"
-                    innerRef={(input) => this.listname = input} />
+                    innerRef={(input) => this.listname = input} onChange={this.handleInputChangename} value={this.state.valuename} />
                 </FormGroup>
 
                 <FormGroup>
@@ -106,7 +139,7 @@ class NewExercise extends Component{
                 <FormGroup>
                   <b><Label htmlFor="todo" className="newlabel">TODO</Label></b>
                   <Input type="text" className="input" id="todo" name="todo"
-                    innerRef={(input) => this.todo = input} />
+                    innerRef={(input) => this.todo = input} onChange={this.handleInputChangetodo} value={this.state.valuetodo} />
                 </FormGroup>
                 <FormGroup>
                   <b><Label htmlFor="status" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >STATUS</Label></b>
@@ -123,7 +156,8 @@ class NewExercise extends Component{
 
                 <FormGroup>
                   <b><Label htmlFor="due" className="newlabel">DUE DATE</Label></b>
-                  <Input type="date" className="input" id="due" name="due" max="2030-01-01" innerRef={(input) => this.due = input}/>
+                  <Input type="date" className="input" id="due" name="due" max="2030-01-01" 
+                  innerRef={(input) => this.due = input} onChange={this.handleInputChangedate} value = {this.state.valuedate} />
                 </FormGroup>
                 <FormGroup>
                   <b><Label htmlFor="priority" className="newlabel" style={{ marginTop: '20px', marginBottom: '10px '}} >PRIORITY</Label></b>

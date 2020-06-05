@@ -9,15 +9,19 @@ class Exercise extends Component {
     super(props);
 
     this.toggledroptype = this.toggledroptype.bind(this);
+    this.toggledropstatus = this.toggledropstatus.bind(this);
     this.toggledroppriority = this.toggledroppriority.bind(this);
     this.changeValueextype = this.changeValueextype.bind(this);
+    this.changeValueexstatus = this.changeValueexstatus.bind(this);
     this.changeValueexpriority = this.changeValueexpriority.bind(this);
     this.dateOnChange = this.dateOnChange.bind(this);
     this.state = {
       dropdownOpentype: false,
       dropdownOpenpriority: false,
+      dropdownOpenstatus: false,
       dropDownValueextype: 'All',
       dropDownValueexpriority: 'All',
+      dropDownValueexstatus: 'All',
       userId: this.props.match.params.userId,
       exercises: [],
       currentExercises: [],
@@ -51,6 +55,12 @@ class Exercise extends Component {
     });
   }
 
+  toggledropstatus() {
+    this.setState({
+      dropdownOpenstatus: !this.state.dropdownOpenstatus
+    });
+  }
+
   toggledroppriority() {
     this.setState({
       dropdownOpenpriority: !this.state.dropdownOpenpriority
@@ -62,6 +72,31 @@ class Exercise extends Component {
       this.filter();
     });
 
+  }
+
+  changeValueexstatus(e) {
+    this.setState({ dropDownValueexstatus: e.currentTarget.textContent }, () => {
+      this.filter();
+    });
+
+  }
+
+  changeValueexpriority(e) {
+    this.setState({ dropDownValueexpriority: e.currentTarget.textContent }, () => {
+      this.filter();
+    });
+
+  }
+
+  dateOnChange() {
+
+    // var das = new Date(this.exdue.value);
+    // console.log(das.getTime());
+    this.setState({
+      selectedDate: this.exdue.value
+    }, () => {
+      this.filter()
+    });
   }
 
   filter() {
@@ -145,26 +180,6 @@ class Exercise extends Component {
     });
   }
 
-  changeValueexpriority(e) {
-    this.setState({ dropDownValueexpriority: e.currentTarget.textContent }, () => {
-      this.filter();
-    });
-
-
-  }
-
-  dateOnChange() {
-
-    // var das = new Date(this.exdue.value);
-    // console.log(das.getTime());
-    this.setState({
-      selectedDate: this.exdue.value
-    }, () => {
-      this.filter()
-    });
-  }
-
-  
   render() {
     // console.log(this.props.match.params.userId);
 
@@ -193,7 +208,22 @@ class Exercise extends Component {
             </DropdownMenu>
           </ButtonDropdown>
 
-          <b><Label htmlFor="category" className="exlabel" style={{ marginLeft: '20px' }} >DUE DATE</Label></b>
+          <b><Label htmlFor="status" className="exlabel">STATUS</Label></b>
+
+          <ButtonDropdown isOpen={this.state.dropdownOpenstatus} toggle={this.toggledropstatus} id="exdropstatus">
+            <DropdownToggle color="warning" toggle={this.toggledropstatus} caret style={{ fontSize: '19px' }}>{this.state.dropDownValueexstatus}</DropdownToggle>
+            <DropdownMenu className="drop">
+              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >All</DropdownItem>
+              <hr />
+              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >New</DropdownItem>
+              <hr />
+              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >In Progress</DropdownItem>
+              <hr />
+              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >Completed</DropdownItem>
+            </DropdownMenu>
+          </ButtonDropdown>
+
+          <b><Label htmlFor="category" className="exlabel" style={{ marginLeft: '6px', fontSize: '20px' }} >DATE</Label></b>
 
           <Input type="date" id="exdue" name="exdue" max="2030-01-01" onChange={this.dateOnChange} innerRef={(input) => this.exdue = input} />
 

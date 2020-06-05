@@ -37,12 +37,13 @@ const Rendercard = ({props}) => {
           props.exercise.map((todo) => {
           return (  
               <Card key={todo._id} className="cards">
-                <CardTitle className="text">{todo.title}</CardTitle>
-                <CardSubtitle className="text">{todo.label}</CardSubtitle>
+                <CardTitle className="text">Name : {todo.title}</CardTitle>
+                <CardSubtitle className="text">Label : {todo.label}</CardSubtitle>
                 <hr id="hrcard" />
-                <CardText className="text">{todo.task}</CardText>
-                <CardText className="text">{new Date(todo.due).toDateString()}</CardText>
-                <CardText className="text">{todo.status}</CardText> 
+                <CardText className="text">Task : {todo.task}</CardText>
+                <CardText className="text">Date : {new Date(todo.due).toDateString()}</CardText>
+                <CardText className="text">Status : {todo.status}</CardText> 
+                <CardText className="text">Priority : {todo.priority}</CardText>
                 <div>
                 <Button type="submit" color="danger" onClick={()=>{del(todo._id)}} className="remove"><i class="fa fa-times-circle-o" aria-hidden="true" style={{marginRight: '5px'}} ></i>Remove</Button>
                 <Button type="submit" color="danger" onClick={()=>{done(todo._id)}} className="done"><i class="fa fa-check-circle" aria-hidden="true" style={{marginRight: '5px'}} ></i>Done</Button>
