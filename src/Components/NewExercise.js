@@ -35,6 +35,7 @@ class NewExercise extends Component{
           .then((res) => {
               if (res.status == 200) {
                   console.log(res.data);
+                
               }
           })
   }
@@ -138,7 +139,7 @@ class NewExercise extends Component{
                     </DropdownMenu>
                 </ButtonDropdown>
                 </FormGroup>
-                <Button type="submit" value="submit" color="primary" id="sub"><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
+                <Button type="submit" value="submit" color="primary" id="sub" onClick={this.handleSubmit}><i class="fa fa-send-o" style={{fontSize:'15px', color:'primary', marginRight: '7px'}}></i>Submit</Button>
                 <Button type="submit" value="submit" color="primary" id="homebt"  ><i class="fa fa-home" aria-hidden="true" style={{fontSize:'15px', color:'primary', marginRight: '7px'}} ></i>Home</Button>
       </Form>      
       </Jumbotron>
