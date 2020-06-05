@@ -88,7 +88,7 @@ class Exercise extends Component {
 
                   <b><Label htmlFor="category" className="exlabel" style={{marginLeft: '20px'}} >DUE DATE</Label></b>
 
-                  <Input type="date" id="exdue" name="exdue" max="2030-01-01" innerRef={(input) => this.exdue = input}/>
+                  <Input type="date" className="input" id="exdue" name="exdue" max="2030-01-01" innerRef={(input) => this.exdue = input}/>
 
                   <b><Label htmlFor="priority" className="exlabel" style={{marginLeft: '20px'}} >PRIORITY</Label></b>
 
