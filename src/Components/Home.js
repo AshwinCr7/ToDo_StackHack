@@ -45,6 +45,7 @@ class Home extends Component {
           localStorage.setItem("token",res.data.token);
           localStorage.setItem("userId",res.data.userId);
           localStorage.setItem("userName",res.data.name);
+          console.log(res.data.name);
           this.setState({
             authenticated: true,
             userId: res.data.userId,
