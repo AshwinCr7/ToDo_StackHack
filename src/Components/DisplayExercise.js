@@ -38,7 +38,7 @@ const Rendercard = ({props}) => {
           return (  
               <Card key={todo._id} className="cards">
                 <CardTitle className="text">Name : {todo.title}</CardTitle>
-                <CardSubtitle className="text">Label : {todo.label}</CardSubtitle>
+                <CardText className="text">Label : {todo.label}</CardText>
                 <hr id="hrcard" />
                 <CardText className="text">Task : {todo.task}</CardText>
                 <CardText className="text">Date : {new Date(todo.due).toDateString()}</CardText>

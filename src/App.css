@@ -46,9 +46,17 @@
 #jumbon{
   background-color: #03a5fc;
   margin: 35px 0px 100px 0px;
-  height: 642px; 
   width: 575px;
   padding-top: 30px;
+}
+
+.feed{
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-left: 13px;
+  margin-top: 15px;
+  word-spacing: 5px;
 }
 
 #hrcard{
@@ -60,7 +68,6 @@
 
 .text{
   font-family: 'Spectral', serif;
-  margin-bottom: 13px;
   font-size: 20px;
   color: #e8e8e8;
   text-align: justify-all;
@@ -72,7 +79,15 @@
   padding: 15px;
   margin-top: 50px;
   width: 340px;
-  height: 355px;
+  margin-right: 62px;
+  border-radius: 5px;
+}
+
+.dcards{
+  background-color: #03a5fc;
+  padding: 15px;
+  margin-top: 50px;
+  width: 340px;
   margin-right: 62px;
   border-radius: 5px;
 }
@@ -115,13 +130,7 @@
 #exdroptype{
   width: 159px;  
   height: 43px;
-  margin-right: 10px;
-}
-
-#exdropstatus{
-  width: 159px;  
-  height: 43px;
-  margin-right: 10px;
+  margin-right: 58px;
 }
 
 #exdue{
@@ -130,11 +139,14 @@
   background-color: #edc915;
   border-color: #edc915;
   font-weight: bold;
+  margin-right: 40px;
+  margin-left: -7px;
 }
 
 #exdroppriority{
   width: 159px; 
   height: 43px;
+  margin-left: 15px;
 }
 
 #dropname{
@@ -169,14 +181,7 @@
     border-radius: 5px;
     font-size: 19px;
     margin-left: 200px;
-}
-
-#homebt {
-    margin-top: 15px;
-    width: 110px;
-    height: 41px;
-    border-radius: 5px;
-    font-size: 19px;
+    margin-bottom: -40px;
 }
 
 .newlabel{
@@ -192,7 +197,7 @@
   font-size: 20px;
   color: #e8e8e8;
   margin-top: -5px;
-  margin-right: 22px;
+  margin-right: 77px;
 }
 
 #to{

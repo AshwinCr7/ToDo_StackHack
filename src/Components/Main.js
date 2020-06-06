@@ -3,6 +3,7 @@ import Home from './Home';
 import NewExercise from './NewExercise';
 import { Switch, Route, Redirect,Router } from "react-router-dom";
 import Exercise from './Exercise';
+import Done from './Done';
 class Main extends Component {
 
     render() {
@@ -10,6 +11,7 @@ class Main extends Component {
                 <Switch>
                     <Route exact path="/" component={Home}/>
                     <Route exact path="/:userId/exercises" component={Exercise}/>
+                    <Route exact path="/:userId/exercises/done" component={Done}/>
                     <Route exact path="/:userId/exercises/new" component={NewExercise}/>
                 </Switch>            
         );

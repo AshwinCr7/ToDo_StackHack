@@ -15,7 +15,6 @@ class Exercise extends Component {
     this.changeValueexstatus = this.changeValueexstatus.bind(this);
     this.changeValueexpriority = this.changeValueexpriority.bind(this);
     this.dateOnChange = this.dateOnChange.bind(this);
-    this.statusChange = this.statusChange.bind(this);
     this.state = {
       dropdownOpentype: false,
       dropdownOpenpriority: false,
@@ -76,51 +75,10 @@ class Exercise extends Component {
   }
 
   changeValueexstatus(e) {
-    this.setState({ dropDownValueexstatus: e.currentTarget.textContent }, () => {
-      this.statusChange();
-    });
+    this.setState({ dropDownValueexstatus: e.currentTarget.textContent }
+    );
 
-  }
-
-  statusChange() {
-    if (this.state.dropDownValueexstatus === "Completed") {
-      var done = [];
-      axios.defaults.withCredentials = true;
-      axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
-
-      axios.get("http://localhost:3001/tasks/" + localStorage.getItem("userId")+"/donetask")
-        .then((res) => {
-          if (res.status == 200) {
-            res.data.forEach(element => {
-              // this.setState({
-              //     exercises : [...this.state.exercises, element]
-              // })
-              // console.log(element);
-              done.push(element);
-
-            });
-            console.log(done);
-            this.setState({
-              currentExercises : done
-            })
-          }
-        });
-    } else if (this.state.dropDownValueexstatus === "All") {
-        this.setState({
-          currentExercises : this.state.exercises
-        })
-    } else {
-        var task = [];
-        this.state.exercises.forEach(element =>{
-            if(element.status === this.state.dropDownValueexstatus){
-              task.push(element);
-            }
-        });
-        this.setState({
-          currentExercises : task
-        })
-    }
-  }
+  }  
 
   changeValueexpriority(e) {
     this.setState({ dropDownValueexpriority: e.currentTarget.textContent }, () => {
@@ -222,8 +180,6 @@ class Exercise extends Component {
   }
 
   render() {
-    // console.log(this.props.match.params.userId);
-
     return (
       <div>
         <Navs userId={localStorage.getItem("userId")} />
@@ -246,21 +202,6 @@ class Exercise extends Component {
               <DropdownItem className="typelist" onClick={this.changeValueextype} >Payments</DropdownItem>
               <hr />
               <DropdownItem className="typelist" onClick={this.changeValueextype} >Misc</DropdownItem>
-            </DropdownMenu>
-          </ButtonDropdown>
-
-          <b><Label htmlFor="status" className="exlabel">STATUS</Label></b>
-
-          <ButtonDropdown isOpen={this.state.dropdownOpenstatus} toggle={this.toggledropstatus} id="exdropstatus">
-            <DropdownToggle color="warning" toggle={this.toggledropstatus} caret style={{ fontSize: '19px' }}>{this.state.dropDownValueexstatus}</DropdownToggle>
-            <DropdownMenu className="drop">
-              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >All</DropdownItem>
-              <hr />
-              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >New</DropdownItem>
-              <hr />
-              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >In Progress</DropdownItem>
-              <hr />
-              <DropdownItem className="typelist" onClick={this.changeValueexstatus} >Completed</DropdownItem>
             </DropdownMenu>
           </ButtonDropdown>
 

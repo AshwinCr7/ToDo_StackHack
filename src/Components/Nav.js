@@ -38,6 +38,9 @@ class Navs extends Component {
                             <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link"  to={myEx}><i class="fa fa-home" aria-hidden="true" style={{fontSize:'20px', color:'primary', marginRight: '7px'}} ></i>My Tasks</NavLink></b>
                         </NavItem>
                         <NavItem>
+                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link"  to={"/" + localStorage.getItem("userId")+ "/exercises/done"}><i class="fa fa-check-circle" aria-hidden="true" style={{fontSize:'20px', color:'primary', marginRight: '7px'}} ></i>Done Tasks</NavLink></b>
+                        </NavItem>
+                        <NavItem>
                             <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link" to={"/" + localStorage.getItem("userId")+ "/exercises/new"}><i class="fas fa-tasks" aria-hidden="true" style={{fontSize:'19px', color:'primary', marginRight: '7px'}}></i>New Task</NavLink></b>
                         </NavItem>
                         <NavItem>
