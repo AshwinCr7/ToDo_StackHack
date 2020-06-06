@@ -38,7 +38,7 @@ class Home extends Component {
   handleSignup(event) {
     this.toggleModalsignup();
     event.preventDefault();
-    axios.post("http://localhost:3001/users/signup", { username: this.username.value, password: this.password.value, name: this.name.value })
+    axios.post("https://todobackendsmith.herokuapp.com/users/signup", { username: this.username.value, password: this.password.value, name: this.name.value })
       .then((res) => {
         if (res.data.success) {
           console.log(res);
@@ -60,7 +60,7 @@ class Home extends Component {
     console.log(event);
     console.log(this.username.value);
     event.preventDefault();
-    axios.post("http://localhost:3001/users/login", { username: this.username.value, password: this.password.value })
+    axios.post("https://todobackendsmith.herokuapp.com/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         if (res.data.success) {
           var red = "/" + res.data.userId + "/exercises";
@@ -75,7 +75,7 @@ class Home extends Component {
           })
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log("Login" + err));
 
   }
 

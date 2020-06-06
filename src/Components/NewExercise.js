@@ -55,7 +55,7 @@ class NewExercise extends Component{
     axios.defaults.withCredentials = true ;
     axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-      axios.post("http://localhost:3001/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
+      axios.post("https://todobackendsmith.herokuapp.com/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
           .then((res) => {
               if (res.status == 200) {
                   console.log(res.data);

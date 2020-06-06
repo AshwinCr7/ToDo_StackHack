@@ -31,7 +31,7 @@ class Exercise extends Component {
     axios.defaults.withCredentials = true;
     axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-    axios.get("http://localhost:3001/tasks/" + localStorage.getItem("userId"))
+    axios.get("https://todobackendsmith.herokuapp.com/tasks/" + localStorage.getItem("userId"))
       .then((res) => {
         if (res.status == 200) {
           res.data.forEach(element => {
