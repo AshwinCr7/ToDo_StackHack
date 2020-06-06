@@ -15,6 +15,7 @@ class Exercise extends Component {
     this.changeValueexstatus = this.changeValueexstatus.bind(this);
     this.changeValueexpriority = this.changeValueexpriority.bind(this);
     this.dateOnChange = this.dateOnChange.bind(this);
+    this.statusChange = this.statusChange.bind(this);
     this.state = {
       dropdownOpentype: false,
       dropdownOpenpriority: false,
@@ -76,9 +77,49 @@ class Exercise extends Component {
 
   changeValueexstatus(e) {
     this.setState({ dropDownValueexstatus: e.currentTarget.textContent }, () => {
-      this.filter();
+      this.statusChange();
     });
 
+  }
+
+  statusChange() {
+    if (this.state.dropDownValueexstatus === "Completed") {
+      var done = [];
+      axios.defaults.withCredentials = true;
+      axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
+
+      axios.get("http://localhost:3001/tasks/" + localStorage.getItem("userId")+"/donetask")
+        .then((res) => {
+          if (res.status == 200) {
+            res.data.forEach(element => {
+              // this.setState({
+              //     exercises : [...this.state.exercises, element]
+              // })
+              // console.log(element);
+              done.push(element);
+
+            });
+            console.log(done);
+            this.setState({
+              currentExercises : done
+            })
+          }
+        });
+    } else if (this.state.dropDownValueexstatus === "All") {
+        this.setState({
+          currentExercises : this.state.exercises
+        })
+    } else {
+        var task = [];
+        this.state.exercises.forEach(element =>{
+            if(element.status === this.state.dropDownValueexstatus){
+              task.push(element);
+            }
+        });
+        this.setState({
+          currentExercises : task
+        })
+    }
   }
 
   changeValueexpriority(e) {
@@ -247,7 +288,7 @@ class Exercise extends Component {
         </div>
       </div>
     );
-  }    
+  }
 }
 
 
