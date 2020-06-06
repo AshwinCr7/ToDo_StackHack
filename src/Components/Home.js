@@ -42,14 +42,15 @@ class Home extends Component {
       .then((res) => {
         if (res.data.success) {
           console.log(res);
+          localStorage.setItem("token",res.data.token);
+          localStorage.setItem("userId",res.data.userId);
           this.setState({
             authenticated: true,
             userId: res.data.userId,
             token: res.data.token
 
           });
-          localStorage.setItem("token",res.data.token);
-          localStorage.setItem("userId",res.data.userId);
+          
         }
       });
   }
