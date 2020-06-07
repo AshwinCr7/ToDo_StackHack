@@ -54,7 +54,7 @@ class Home extends Component {
           
         }
       })
-      .catch((err)=>alert("Invalid Credentials"))
+      
   }
 
 
@@ -77,11 +77,10 @@ class Home extends Component {
             userId: res.data.userId,
             token: res.data.token
           })
-        }else{
-          alert("Invalid Credentials");
         }
 
-      });
+      })
+      .catch((err)=>alert("Invalid Credentials"))
 
   }
 
