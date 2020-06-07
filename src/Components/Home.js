@@ -41,11 +41,11 @@ class Home extends Component {
       .then((res) => {
         if (res.data.success) {
           this.toggleModalsignup();	
-          console.log(res);
+          // console.log(res);
           localStorage.setItem("token",res.data.token);
           localStorage.setItem("userId",res.data.userId);
           localStorage.setItem("userName",res.data.name);
-          console.log(res.data.name);
+          // console.log(res.data.name);
           this.setState({
             authenticated: true,
             userId: res.data.userId,
@@ -53,20 +53,22 @@ class Home extends Component {
           });
           
         }
-      });
+      })
+      
   }
 
 
   handleLogin(event) {
-    console.log(event);
-    console.log(this.username.value);
+    // console.log(event);
+    // console.log(this.username.value);
     event.preventDefault();
     axios.post("https://todobackendsmith.herokuapp.com/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
-        if (res.data.success) {
+        // console.log(res.data);
+        if (res.status == 200) {
     	  this.toggleModallogin();
           var red = "/" + res.data.userId + "/exercises";
-          console.log(res);
+          // console.log(res);
           localStorage.setItem("token",res.data.token);
           localStorage.setItem("userId",res.data.userId);
           localStorage.setItem("userName",res.data.name);
@@ -76,12 +78,9 @@ class Home extends Component {
             token: res.data.token
           })
         }
-        else{
-        	alert("Invalid Username Or Password ..!!");
-        }
 
       })
-      .catch((err) => console.log("Login" + err));
+      .catch((err)=>alert("Invalid Credentials"))
 
   }
 

@@ -10,7 +10,7 @@ function del(taskId){
     .then((res) => {
       if (res.status === 200) {
         // console.log(this.state.exercises);
-        console.log(res.data);
+        // console.log(res.data);
         window.location.reload();
       }
     })
@@ -24,7 +24,7 @@ function done(taskId){
     .then((res) => {
       if (res.status === 200) {
         // console.log(this.state.exercises);
-        console.log(res.data);
+        // console.log(res.data);
         window.location.reload();
       }
     })
@@ -66,7 +66,7 @@ class Display extends Component{
 
   constructor(props) {
         super(props);  
-        console.log(props.exercise)     
+        // console.log(props.exercise)     
   }  
 
   render(){

@@ -99,30 +99,30 @@ class Exercise extends Component {
   }
 
   filter() {
-    console.log("Inside Filter");
+    // console.log("Inside Filter");
     var newEx = []
     this.state.exercises.forEach(exercise => {
       if (this.state.dropDownValueexpriority === "All" && this.state.dropDownValueextype === "All" && this.state.selectedDate === null) {
         newEx = this.state.exercises;
-        console.log("Inside If 1");
+        // console.log("Inside If 1");
         var exDate = new Date(exercise.due);
         var selDate = new Date(this.state.selectedDate);
         // console.log(exDate+" :" + selDate);
         if (exDate.getTime() === selDate.getTime()) {
-          console.log("Date Equal");
+          // console.log("Date Equal");
         }
 
       } else if (this.state.dropDownValueexpriority === "All" && this.state.dropDownValueextype !== "All" && this.state.selectedDate === null) {
-        console.log("Inside If 2")
+        // console.log("Inside If 2")
         if (exercise.label === this.state.dropDownValueextype) {
           newEx.push(exercise);
-          console.log("Inside If 3")
+          // console.log("Inside If 3")
         }
       } else if (this.state.dropDownValueexpriority !== "All" && this.state.dropDownValueextype === "All" && this.state.selectedDate === null) {
-        console.log("Inside If 4")
+        // console.log("Inside If 4")
         if (exercise.priority === this.state.dropDownValueexpriority) {
           newEx.push(exercise);
-          console.log("Inside If 5")
+          // console.log("Inside If 5")
         }
       } else if (this.state.dropDownValueexpriority === "All" && this.state.dropDownValueextype === "All" && this.state.selectedDate !== null) {
         var exDate = new Date(exercise.due);
@@ -159,10 +159,10 @@ class Exercise extends Component {
           }
         }
       } else {
-        console.log("Inside If 6")
+        // console.log("Inside If 6")
         if (exercise.priority === this.state.dropDownValueexpriority && exercise.label === this.state.dropDownValueextype) {
           // console.log("Indise If");
-          console.log("Inside If 7")
+          // console.log("Inside If 7")
           var exDate = new Date(exercise.due);
           var selDate = new Date(this.state.selectedDate);
           // console.log(exDate+" :" + selDate);
@@ -172,8 +172,8 @@ class Exercise extends Component {
         }
       }
     });
-    console.log("Befor MyWx");
-    console.log(newEx);
+    // console.log("Befor MyWx");
+    // console.log(newEx);
     this.setState({
       currentExercises: newEx
     });
