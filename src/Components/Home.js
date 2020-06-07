@@ -64,7 +64,7 @@ class Home extends Component {
     axios.post("https://todobackendsmith.herokuapp.com/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         // console.log(res.data);
-        if (res.data.success) {
+        if (res.status == 200) {
     	  this.toggleModallogin();
           var red = "/" + res.data.userId + "/exercises";
           console.log(res);
@@ -76,10 +76,12 @@ class Home extends Component {
             userId: res.data.userId,
             token: res.data.token
           })
+        }else{
+          alert("Invalid Credentials");
         }
 
       })
-      .catch(alert("Invalid Username Or Password ..!!"));
+      .catch((err)=>console.log(err));
 
   }
 
