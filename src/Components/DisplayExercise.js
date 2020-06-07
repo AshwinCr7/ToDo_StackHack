@@ -6,7 +6,7 @@ function del(taskId){
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-  axios.delete("http://localhost:3001/tasks/delete/" + taskId )
+  axios.delete("https://todobackendsmith.herokuapp.com/tasks/delete/" + taskId )
     .then((res) => {
       if (res.status == 200) {
         // console.log(this.state.exercises);
@@ -20,7 +20,7 @@ function done(taskId){
   axios.defaults.withCredentials = true;
   axios.defaults.headers.common = { 'Authorization': `bearer ${localStorage.getItem("token")}` }
 
-  axios.post("http://localhost:3001/tasks/done/" + taskId )
+  axios.post("https://todobackendsmith.herokuapp.com/tasks/done/" + taskId )
     .then((res) => {
       if (res.status == 200) {
         // console.log(this.state.exercises);
