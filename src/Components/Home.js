@@ -97,11 +97,11 @@ class Home extends Component {
 
     else {
       return (
-        <div>
+        <div className="container">
           <Jumbotron id="jumboh">
             <div className="home">
               <h1 className="h1">To Do List...!!!</h1>
-              <div className="row col-12 m-1">
+              <div className="row col-12">
                 <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
                 <img src="todo.png" width="200px" height="200px" id="to" alt="ToDo Icon" />
               </div>

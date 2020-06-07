@@ -26,7 +26,6 @@
 #jumboh{
   background: #3cc1fa;
   margin: 200px auto;
-  height: 300px;
 }
 
 .typelist{
@@ -207,8 +206,8 @@
 }
 
 #to{
-  margin-left: 20px;
-  margin-top: -90px;
+  margin-left: 800px;
+  margin-top: -150px;
   background: none;
 }
 
@@ -245,6 +244,7 @@
   height: 45px;
   font-size: 18px;
   border-radius: 10px;
+  margin-bottom: -40px;
 }
 
 #signup{
@@ -252,4 +252,5 @@
   height: 45px;
   font-size: 18px;
   border-radius: 10px;
+  margin-bottom: -40px;
 }
