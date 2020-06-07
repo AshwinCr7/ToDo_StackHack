@@ -76,12 +76,9 @@ class Home extends Component {
             token: res.data.token
           })
         }
-        else{
-        	alert("Invalid Username Or Password ..!!");
-        }
 
       })
-      .catch((err) => console.log("Login" + err));
+      .catch(alert("Invalid Username Or Password ..!!"));
 
   }
 
