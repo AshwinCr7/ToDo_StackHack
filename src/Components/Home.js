@@ -54,7 +54,7 @@ class Home extends Component {
           
         }
       })
-      .catch((err)=>console.log("Invalid Credentials"))
+      .catch((err)=>alert("Invalid Credentials"))
   }
 
 
