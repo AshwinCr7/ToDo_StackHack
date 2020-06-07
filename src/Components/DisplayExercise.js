@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { Card, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardTitle, Button } from 'reactstrap';
 import axios from "axios";
 
 function del(taskId){
@@ -8,7 +8,7 @@ function del(taskId){
 
   axios.delete("https://todobackendsmith.herokuapp.com/tasks/delete/" + taskId )
     .then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         // console.log(this.state.exercises);
         console.log(res.data);
         window.location.reload();
@@ -22,7 +22,7 @@ function done(taskId){
 
   axios.post("https://todobackendsmith.herokuapp.com/tasks/done/" + taskId )
     .then((res) => {
-      if (res.status == 200) {
+      if (res.status === 200) {
         // console.log(this.state.exercises);
         console.log(res.data);
         window.location.reload();

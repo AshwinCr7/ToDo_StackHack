@@ -26,9 +26,9 @@ class Navs extends Component {
     const myEx = "/" + localStorage.getItem("userId")+ "/exercises";
 		return( 
 			<div>
-		      <Navbar id="navbar" expand="md">
+		      <Navbar id="navbar" expand="sm">
                 <div className="container">
-                    <NavbarToggler onClick={this.toggleNav} />
+                    <NavbarToggler id="tog" className="navbar-light" onClick={this.toggleNav} />
                     <Collapse isOpen={this.state.isNavOpen} navbar>
                         <Nav navbar>
                         <NavItem>
@@ -42,9 +42,8 @@ class Navs extends Component {
                         </NavItem>
                         <NavItem>
                             <b><NavLink style={{color: '#ffffff', fontSize: '20px', marginRight: '30px'}} className="nav-link" to={"/" + localStorage.getItem("userId")+ "/exercises/new"}><i class="fas fa-tasks" aria-hidden="true" style={{fontSize:'19px', color:'primary', marginRight: '7px'}}></i>New Task</NavLink></b>
-                        </NavItem>
-                        <NavItem>
-                            <b><NavLink style={{color: '#ffffff', fontSize: '20px', float: 'right'}} className="nav-link" to={"/"}><i class="fa fa-sign-out" style={{fontSize: '20px', marginRight: '15px'}}></i>Log Out</NavLink></b>
+                        </NavItem><NavItem>
+                            <b><NavLink style={{color: '#ffffff', fontSize: '20px'}} className="nav-link" to={"/"}><i class="fa fa-sign-out" style={{fontSize: '20px', marginRight: '15px'}}></i>Log Out</NavLink></b>
                         </NavItem>
                         </Nav>                            
                     </Collapse>

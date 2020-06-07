@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Home from './Home';
 import NewExercise from './NewExercise';
-import { Switch, Route, Redirect,Router } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Exercise from './Exercise';
 import Done from './Done';
 class Main extends Component {

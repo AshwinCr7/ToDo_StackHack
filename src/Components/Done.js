@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-import { Card, CardText, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardTitle } from 'reactstrap';
 import Navs from './Nav';
 import axios from "axios";
 const Rendercard = ({props}) => {
@@ -27,7 +27,6 @@ const Rendercard = ({props}) => {
           </div>
         );
      }
-    // return(<h1>Awesome</h1>)
 }
 
 class Done extends Component{
@@ -44,7 +43,7 @@ class Done extends Component{
     
         axios.get("https://todobackendsmith.herokuapp.com/tasks/" + localStorage.getItem("userId") +"/donetask")
           .then((res) => {
-            if (res.status == 200) {
+            if (res.status === 200) {
               res.data.forEach(element => {
                 // this.setState({
                 //     exercises : [...this.state.exercises, element]

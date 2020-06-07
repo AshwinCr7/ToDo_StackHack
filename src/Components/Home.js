@@ -35,12 +35,12 @@ class Home extends Component {
     });
   }
 
-  handleSignup(event) {
-    this.toggleModalsignup();
+  handleSignup(event) {    
     event.preventDefault();
     axios.post("https://todobackendsmith.herokuapp.com/users/signup", { username: this.username.value, password: this.password.value, name: this.name.value })
       .then((res) => {
         if (res.data.success) {
+          this.toggleModalsignup();	
           console.log(res);
           localStorage.setItem("token",res.data.token);
           localStorage.setItem("userId",res.data.userId);
@@ -50,7 +50,6 @@ class Home extends Component {
             authenticated: true,
             userId: res.data.userId,
             token: res.data.token
-
           });
           
         }
@@ -59,13 +58,13 @@ class Home extends Component {
 
 
   handleLogin(event) {
-    this.toggleModallogin();
     console.log(event);
     console.log(this.username.value);
     event.preventDefault();
     axios.post("https://todobackendsmith.herokuapp.com/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
         if (res.data.success) {
+    	  this.toggleModallogin();
           var red = "/" + res.data.userId + "/exercises";
           console.log(res);
           localStorage.setItem("token",res.data.token);
@@ -77,6 +76,10 @@ class Home extends Component {
             token: res.data.token
           })
         }
+        else{
+        	alert("Invalid Username Or Password ..!!");
+        }
+
       })
       .catch((err) => console.log("Login" + err));
 
@@ -98,7 +101,7 @@ class Home extends Component {
           <Jumbotron id="jumboh">
             <div className="home">
               <h1 className="h1">To Do List...!!!</h1>
-              <div className="row">
+              <div className="row col-12 m-1">
                 <p className="lead">Your Daily Planner to Schedule Work and Life..!!</p>
                 <img src="todo.png" width="200px" height="200px" id="to" alt="ToDo Icon" />
               </div>

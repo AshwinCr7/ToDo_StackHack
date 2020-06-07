@@ -1,3 +1,9 @@
+#tog{
+  background-color: #f5f5f5;
+  margin-left: -3px;
+  margin-bottom: 7px;
+}
+
 .input{
   font-size: 19px;
   font-weight: bold;
@@ -201,7 +207,7 @@
 }
 
 #to{
-  margin-left: 70px;
+  margin-left: 20px;
   margin-top: -90px;
   background: none;
 }
@@ -212,7 +218,7 @@
 }
 
 .lead {
-  text-align: left;
+  text-align: justify-all;
   margin-left: 130px;
   margin-bottom: 3px;
   margin-top: 20px;

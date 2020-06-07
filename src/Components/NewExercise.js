@@ -2,8 +2,6 @@ import React , {Component} from 'react';
 import { Form, FormGroup, FormFeedback, Label, Input, Button, Jumbotron, ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Navs from './Nav';
 import axios from "axios";
-import { NavLink } from 'react-router-dom';
-import Exercise from './Exercise';
 
 class NewExercise extends Component{
 
@@ -57,7 +55,7 @@ class NewExercise extends Component{
 
       axios.post("https://todobackendsmith.herokuapp.com/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
           .then((res) => {
-              if (res.status == 200) {
+              if (res.status === 200) {
                   console.log(res.data);
                 
               }

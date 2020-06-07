@@ -33,7 +33,7 @@ class Exercise extends Component {
 
     axios.get("https://todobackendsmith.herokuapp.com/tasks/" + localStorage.getItem("userId"))
       .then((res) => {
-        if (res.status == 200) {
+        if (res.status === 200) {
           res.data.forEach(element => {
             // this.setState({
             //     exercises : [...this.state.exercises, element]
