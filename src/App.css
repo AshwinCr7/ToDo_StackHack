@@ -258,3 +258,7 @@
   border-radius: 10px;
   margin-bottom: -40px;
 }
+
+html {
+  overflow: auto;
+}
