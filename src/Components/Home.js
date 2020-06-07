@@ -81,7 +81,7 @@ class Home extends Component {
         }
 
       })
-      .catch(alert("Invalid Username Or Password ..!!"));
+      .catch((err) => console.log("Login" + err));
 
   }
 
