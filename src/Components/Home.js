@@ -80,8 +80,7 @@ class Home extends Component {
           alert("Invalid Credentials");
         }
 
-      })
-      .catch((err)=>console.log(err));
+      });
 
   }
 
