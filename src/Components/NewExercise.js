@@ -56,7 +56,7 @@ class NewExercise extends Component{
       axios.post("https://todobackendsmith.herokuapp.com/tasks/newtask",{title : this.listname.value,label : this.state.dropDownValuetype,status : this.state.dropDownValuestatus,due:this.due.value,task : this.todo.value,priority : this.state.dropDownValuepriority})
           .then((res) => {
               if (res.status === 200) {
-                  console.log(res.data);
+                  // console.log(res.data);
                 
               }
           })

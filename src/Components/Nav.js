@@ -12,7 +12,7 @@ class Navs extends Component {
     this.state = {
       isNavOpen: false
     };
-    console.log(localStorage.getItem("userName"));
+    // console.log(localStorage.getItem("userName"));
   }
 
   toggleNav() {

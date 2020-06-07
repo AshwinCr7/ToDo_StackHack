@@ -3,7 +3,7 @@ import { Card, CardText, CardTitle } from 'reactstrap';
 import Navs from './Nav';
 import axios from "axios";
 const Rendercard = ({props}) => {
-  console.log(props)
+  // console.log(props)
     if(props !== undefined && props !== null)
     {
       return(
@@ -33,7 +33,7 @@ class Done extends Component{
 
   constructor(props) {
         super(props);  
-        console.log(props.exercise)     ;
+        // console.log(props.exercise)     ;
         this.state = {
           exercise : []
         }
