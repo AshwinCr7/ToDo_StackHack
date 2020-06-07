@@ -63,6 +63,7 @@ class Home extends Component {
     event.preventDefault();
     axios.post("https://todobackendsmith.herokuapp.com/users/login", { username: this.username.value, password: this.password.value })
       .then((res) => {
+        console.log(res.data);
         if (res.data.statusCode === 200) {
     	  this.toggleModallogin();
           var red = "/" + res.data.userId + "/exercises";
